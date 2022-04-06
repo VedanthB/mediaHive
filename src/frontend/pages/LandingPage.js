@@ -1,6 +1,5 @@
 import React from 'react';
-import FeaturedCategories from '../components/FeaturedCategories';
-import HeroBanner from '../components/HeroBanner';
+import { FeaturedCategories, HeroBanner } from '../components';
 
 const LandingPage = () => {
   return (
@@ -9,9 +8,6 @@ const LandingPage = () => {
       <HeroBanner />
       {/* featuredCategories */}
       <FeaturedCategories />
-      {/* featuredCategories */}
-
-      {/* featuredCategories */}
 
       {/* featuredCategories */}
     </div>

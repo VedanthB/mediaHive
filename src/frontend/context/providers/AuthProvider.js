@@ -1,4 +1,5 @@
 import { useContext, createContext, useReducer, useEffect } from 'react';
+import { authActions } from '../constants';
 import { authReducer } from '../reducer';
 
 const AuthContext = createContext();
@@ -18,7 +19,7 @@ export const AuthProvider = ({ children }) => {
 
     if (encodedToken) {
       authDispatch({
-        type: authConstants.LOGIN_SUCCESS,
+        type: authActions.LOGIN_SUCCESS,
         payload: { user: {}, encodedToken }
       });
     }

@@ -7,6 +7,7 @@ import Mockman from 'mockman-js';
 
 // pages
 import { ExplorePage, LandingPage, LoginPage, SignupPage } from '../pages';
+import PrivateRoutes from './PrivateRoutes';
 
 const WebsiteRoutes = () => {
   return (
@@ -18,6 +19,13 @@ const WebsiteRoutes = () => {
 
       <Route path="/login" element={<LoginPage />} />
       <Route path="/signup" element={<SignupPage />} />
+
+      <Route path="/" element={<PrivateRoutes />}>
+        {/* <Route path="/likedVideos" element={<LoginPage />} />
+        <Route path="/watchLater" element={<LoginPage />} />
+        <Route path="/playlist" element={<LoginPage />} />
+        <Route path="/history" element={<LoginPage />} /> */}
+      </Route>
 
       <Route path="/" element={<LandingPage />} />
     </Routes>

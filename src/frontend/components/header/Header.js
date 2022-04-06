@@ -12,7 +12,7 @@ const Header = () => {
       <NavMenu />
       {/* search bar  */}
 
-      <Link to="/login" class="btn btn-solid-amber shadow-lg text-white">
+      <Link to="/login" className="btn btn-solid-amber shadow-lg text-white">
         Login
       </Link>
     </header>

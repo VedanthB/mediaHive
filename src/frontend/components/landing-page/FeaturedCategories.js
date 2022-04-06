@@ -1,11 +1,17 @@
 import React from 'react';
+import { useCategory } from '../../context/providers/CategoryProvider';
 import CategoryCard from './CategoryCard';
 
 const FeaturedCategories = () => {
+  const {
+    categoryState: { categories }
+  } = useCategory();
+
   return (
     <div className="featuredCategories__container">
       {/* cards */}
-      <CategoryCard />
+
+      {categories && categories.map((category, i) => <CategoryCard category={category} key={i} />)}
       {/* cards */}
     </div>
   );

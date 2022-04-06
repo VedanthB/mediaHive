@@ -16,5 +16,13 @@
   "rules": {
     "react/react-in-jsx-scope": "off"
   },
-  "prettier/prettier": ["error", { "singleQuote": true }]
+  "prettier/prettier": [
+    "error",
+    {},
+    {
+      "fileInfoOptions": {
+        "withNodeModules": true
+      }
+    }
+  ]
 }

@@ -44,3 +44,6 @@ a {
 
 /* ---------------- NavMenu ------------ */
 @import url('./frontend/styles/nav-links.css');
+
+/* ---------------- LandingPage ------------ */
+@import url('./frontend/styles/landing-page.css');

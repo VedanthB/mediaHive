@@ -1,4 +1,5 @@
 import React from 'react';
+import FeaturedCategories from '../components/FeaturedCategories';
 import HeroBanner from '../components/HeroBanner';
 
 const LandingPage = () => {
@@ -7,7 +8,7 @@ const LandingPage = () => {
       {/* Banner */}
       <HeroBanner />
       {/* featuredCategories */}
-
+      <FeaturedCategories />
       {/* featuredCategories */}
 
       {/* featuredCategories */}

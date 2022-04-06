@@ -1,4 +1,4 @@
-import { Response } from "miragejs";
+import { Response } from 'miragejs';
 
 /**
  * All the routes related to Videos are present here.
@@ -18,7 +18,7 @@ export const getAllVideosHandler = function () {
       500,
       {},
       {
-        error,
+        error
       }
     );
   }
@@ -46,7 +46,7 @@ export const getVideoHandler = function (schema, request) {
       500,
       {},
       {
-        error,
+        error
       }
     );
   }

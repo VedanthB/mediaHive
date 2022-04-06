@@ -1,7 +1,6 @@
-import "./App.css";
+import './App.css';
 
-import { WebsiteRoutes } from "./frontend/routes";
-
+import { WebsiteRoutes } from './frontend/routes';
 
 function App() {
   return (
@@ -10,7 +9,6 @@ function App() {
 
       {/* website routes */}
       <WebsiteRoutes />
-
 
       {/* footer */}
     </div>

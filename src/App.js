@@ -1,10 +1,18 @@
 import "./App.css";
 
+import { WebsiteRoutes } from "./frontend/routes";
+
 
 function App() {
   return (
     <div>
-      <h1>hello world</h1>
+      {/* nav */}
+
+      {/* website routes */}
+      <WebsiteRoutes />
+
+
+      {/* footer */}
     </div>
   );
 }

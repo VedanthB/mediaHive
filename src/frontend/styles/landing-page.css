@@ -1,6 +1,6 @@
 .landingPage__container {
   position: relative;
-  min-height: calc(100vh - 250px);
+  min-height: 100vh;
   overflow-x: hidden;
   display: block;
   top: 5rem;

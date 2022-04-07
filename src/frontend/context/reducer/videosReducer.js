@@ -1,22 +1,19 @@
-import { getVideosService } from "../../services";
 import { videoActions } from "../constants";
 
-export const videosReducer = async (videosDispatch) => {
-  try {
-    videosDispatch({ type: videoActions.LOADING });
+export const videosReducer = (state, action) => {
+  const { type, payload } = action;
 
-    const {
-      data: { videos },
-      status,
-    } = await getVideosService();
+  switch (type) {
+    case videoActions.LOADING:
+      return { ...state, loading: true };
 
-    if (status >= 200 && status < 300) {
-      videosDispatch({
-        type: videoActions.GET_VIDEOS_SUCCESS,
-        payload: videos,
-      });
-    }
-  } catch (error) {
-    videosDispatch({ type: videoActions.ERROR, payload: error });
+    case videoActions.GET_VIDEOS_SUCCESS:
+      return { ...state, videos: payload, loading: false };
+
+    case videoActions.ERROR:
+      return { ...state, error: payload, loading: false };
+
+    default:
+      return state;
   }
 };

@@ -1,4 +1,5 @@
 import { useContext, createContext, useReducer, useEffect } from "react";
+import { getVideos } from "../../utils";
 import { videosReducer } from "../reducer";
 
 const VideosContext = createContext();
@@ -16,7 +17,7 @@ export const VideosProvider = ({ children }) => {
   );
 
   useEffect(() => {
-    //   getVideos(videosDispatch);
+    getVideos(videosDispatch);
   }, []);
 
   console.log(videosState);

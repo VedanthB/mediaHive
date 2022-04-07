@@ -1,4 +1,7 @@
 import { useContext, createContext, useReducer } from "react";
+import { filterVideosByCategory } from "../../helpers";
+import { filterReducer } from "../reducer";
+import { useVideos } from "./VideosProvider";
 
 const FiltersContext = createContext();
 
@@ -12,12 +15,21 @@ export const FiltersProvider = ({ children }) => {
     filtersInitialState
   );
 
-  //   const {
-  //     state: { videos }
-  //   } = useVideos();
+  const {
+    videosState: { videos },
+  } = useVideos();
+
+  const filteredProducts = filterVideosByCategory(
+    videos,
+    filtersState.filterBy
+  );
+
+  console.log(filteredProducts, "<<<<<");
 
   return (
-    <FiltersContext.Provider value={{ filtersState, filtersDispatch }}>
+    <FiltersContext.Provider
+      value={{ filtersState, filtersDispatch, filteredProducts }}
+    >
       {children}
     </FiltersContext.Provider>
   );

@@ -8,6 +8,7 @@ import { BrowserRouter as Router } from "react-router-dom";
 import {
   AuthProvider,
   CategoryProvider,
+  FiltersProvider,
   VideosProvider,
 } from "./frontend/context/providers";
 
@@ -20,7 +21,9 @@ ReactDOM.render(
       <CategoryProvider>
         <AuthProvider>
           <VideosProvider>
-            <App />
+            <FiltersProvider>
+              <App />
+            </FiltersProvider>
           </VideosProvider>
         </AuthProvider>
       </CategoryProvider>

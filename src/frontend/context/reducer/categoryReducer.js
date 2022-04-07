@@ -1,4 +1,4 @@
-import { categoryActions } from '../constants';
+import { categoryActions } from "../constants";
 
 export const categoryReducer = (state, action) => {
   const { type, payload } = action;

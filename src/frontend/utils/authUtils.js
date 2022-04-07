@@ -1,5 +1,5 @@
-import { authActions } from '../context/constants';
-import { loginService, signupService } from '../services';
+import { authActions } from "../context/constants";
+import { loginService, signupService } from "../services";
 
 export const signupUser = async (userData, authDispatch, callback) => {
   try {
@@ -7,23 +7,23 @@ export const signupUser = async (userData, authDispatch, callback) => {
 
     const {
       data: { createdUser, encodedToken },
-      status
+      status,
     } = await signupService(userData);
 
     if (status >= 200 && status < 300) {
-      localStorage.setItem('mediaHive_JWT_Token', encodedToken);
+      localStorage.setItem("mediaHive_JWT_Token", encodedToken);
 
       authDispatch({
         type: authActions.SIGNUP_SUCCESS,
-        payload: { createdUser, encodedToken }
+        payload: { createdUser, encodedToken },
       });
 
-      callback('/');
+      callback("/");
     }
   } catch (error) {
     authDispatch({
       type: authActions.ERROR,
-      payload: error
+      payload: error,
     });
   }
 };
@@ -34,23 +34,23 @@ export const loginUser = async (userData, authDispatch, callback) => {
 
     const {
       data: { foundUser, encodedToken },
-      status
+      status,
     } = await loginService(userData);
 
     if (status >= 200 && status < 300) {
       authDispatch({
         type: authActions.LOGIN_SUCCESS,
-        payload: { foundUser, encodedToken }
+        payload: { foundUser, encodedToken },
       });
 
-      localStorage.setItem('mediaHive_JWT_Token', encodedToken);
+      localStorage.setItem("mediaHive_JWT_Token", encodedToken);
 
-      callback('/');
+      callback("/");
     }
   } catch (error) {
     authDispatch({
       type: authActions.ERROR,
-      payload: error
+      payload: error,
     });
   }
 };

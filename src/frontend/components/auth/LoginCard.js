@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import { useAuth } from '../../context/providers';
-import { loginUser } from '../../utils';
+import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { useAuth } from "../../context/providers";
+import { loginUser } from "../../utils";
 
 const initLoginState = {
-  email: '',
-  password: ''
+  email: "",
+  password: "",
 };
 
 const LoginCard = () => {
@@ -22,9 +22,12 @@ const LoginCard = () => {
 
   return (
     <form
-      style={{ margin: 'auto', backgroundColor: '#090b13' }}
-      className="h=96 w-96 p-10 shadow-2xl rounded-2xl">
-      <h3 className="text-2xl font-normal text-center text-white mb-20">Login</h3>
+      style={{ margin: "auto", backgroundColor: "#090b13" }}
+      className="h=96 w-96 p-10 shadow-2xl rounded-2xl"
+    >
+      <h3 className="text-2xl font-normal text-center text-white mb-20">
+        Login
+      </h3>
 
       <div className="mb-5">
         <div className="input-container text-white">
@@ -37,7 +40,11 @@ const LoginCard = () => {
             value={userData.email}
             onChange={handleChange}
           />
-          <label style={{ backgroundColor: '#0000227c' }} for="email" className="input-label">
+          <label
+            style={{ backgroundColor: "#0000227c" }}
+            htmlFor="email"
+            className="input-label"
+          >
             Email *
           </label>
         </div>
@@ -54,42 +61,55 @@ const LoginCard = () => {
             value={userData.password}
             onChange={handleChange}
           />
-          <label style={{ backgroundColor: '#0000227c' }} for="password" className="input-label">
+          <label
+            style={{ backgroundColor: "#0000227c" }}
+            htmlFor="password"
+            className="input-label"
+          >
             Password *
           </label>
         </div>
       </div>
 
       <div className="flex justify-between mb-10">
-        <Link to="/signup" className="btn btn-link-amber text-white" style={{ padding: 0 }}>
+        <Link
+          to="/signup"
+          className="btn btn-link-amber text-white"
+          style={{ padding: 0 }}
+        >
           Sign Up ?
         </Link>
 
-        <Link to="/" className="btn btn-link-amber text-white mb-5 pl-0" style={{ padding: 0 }}>
+        <Link
+          to="/"
+          className="btn btn-link-amber text-white mb-5 pl-0"
+          style={{ padding: 0 }}
+        >
           Forgot Password ?
         </Link>
       </div>
 
       <button
-        style={{ background: 'transparent' }}
+        style={{ background: "transparent" }}
         className="btn btn-outline-amber justify-center w-full text-white mb-5"
         onClick={(e) => {
           e.preventDefault();
 
           setUserData({
-            email: 'johndoe@gmail.com',
-            password: '123456'
+            email: "johndoe@gmail.com",
+            password: "123456",
           });
 
           loginUser(
             {
-              email: 'johndoe@gmail.com',
-              password: '123456'
+              email: "johndoe@gmail.com",
+              password: "123456",
             },
             authDispatch,
             navigate
           );
-        }}>
+        }}
+      >
         Login With Test Credentials
       </button>
 
@@ -99,7 +119,8 @@ const LoginCard = () => {
         onClick={(e) => {
           e.preventDefault();
           loginUser(userData, authDispatch, navigate);
-        }}>
+        }}
+      >
         Login
       </button>
     </form>

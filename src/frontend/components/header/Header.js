@@ -1,15 +1,15 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { authActions } from '../../context/constants';
-import { useAuth } from '../../context/providers';
+import React from "react";
+import { Link } from "react-router-dom";
+import { authActions } from "../../context/constants";
+import { useAuth } from "../../context/providers";
 
-import Logo from './Logo';
-import NavMenu from './NavMenu';
+import Logo from "./Logo";
+import NavMenu from "./NavMenu";
 
 const Header = () => {
   const {
     authState: { encodedToken },
-    authDispatch
+    authDispatch,
   } = useAuth();
 
   return (
@@ -22,7 +22,8 @@ const Header = () => {
       {encodedToken ? (
         <div
           onClick={() => authDispatch({ type: authActions.LOGOUT_SUCCESS })}
-          className="btn btn-solid-amber shadow-lg text-white">
+          className="btn btn-solid-amber shadow-lg text-white"
+        >
           Logout
         </div>
       ) : (

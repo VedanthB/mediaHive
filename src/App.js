@@ -1,8 +1,8 @@
-import './App.css';
+import "./App.css";
 
-import { Footer, Header } from './frontend/components';
+import { Footer, Header } from "./frontend/components";
 
-import { WebsiteRoutes } from './frontend/routes';
+import { WebsiteRoutes } from "./frontend/routes";
 
 function App() {
   return (

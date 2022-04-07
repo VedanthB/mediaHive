@@ -1,4 +1,4 @@
-import { authActions } from '../constants';
+import { authActions } from "../constants";
 
 export const authReducer = (state, action) => {
   switch (action.type) {
@@ -13,7 +13,7 @@ export const authReducer = (state, action) => {
         ...state,
         user: action.payload.foundUser,
         loading: false,
-        encodedToken: action.payload.encodedToken
+        encodedToken: action.payload.encodedToken,
       };
 
     case authActions.SIGNUP_SUCCESS:
@@ -21,16 +21,16 @@ export const authReducer = (state, action) => {
         ...state,
         user: action.payload.createdUser,
         loading: false,
-        encodedToken: action.payload.encodedToken
+        encodedToken: action.payload.encodedToken,
       };
 
     case authActions.LOGOUT_SUCCESS:
-      window.localStorage.removeItem('mediaHive_JWT_Token');
+      window.localStorage.removeItem("mediaHive_JWT_Token");
       return {
         ...state,
         user: {},
         loading: false,
-        encodedToken: null
+        encodedToken: null,
       };
 
     default:

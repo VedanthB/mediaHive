@@ -1,5 +1,5 @@
-import React from 'react';
-import { FiltersDropdownSelect } from '../components';
+import React from "react";
+import { FiltersDropdownSelect } from "../components";
 
 const ExplorePage = () => {
   return (

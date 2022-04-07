@@ -1,5 +1,5 @@
-import React from 'react';
-import { FeaturedCategories, HeroBanner } from '../components';
+import React from "react";
+import { FeaturedCategories, HeroBanner } from "../components";
 
 const LandingPage = () => {
   return (

@@ -1,2 +1,2 @@
-export { getCategories } from './getCategories';
-export { loginUser, signupUser } from './authUtils';
+export { getCategories } from "./getCategories";
+export { loginUser, signupUser } from "./authUtils";

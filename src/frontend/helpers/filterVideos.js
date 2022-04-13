@@ -1,5 +1,5 @@
 export const filterVideosByCategory = (videos, filterCategory) => {
-  if (filterCategory === "All") {
+  if (filterCategory === "All" || filterCategory === null) {
     return videos;
   }
 

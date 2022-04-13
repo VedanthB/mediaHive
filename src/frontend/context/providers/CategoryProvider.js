@@ -16,7 +16,7 @@ export const CategoryProvider = ({ children }) => {
     categoryInitState
   );
 
-  console.log(categoryState);
+  // console.log(categoryState);
 
   useEffect(() => {
     getCategories(categoryDispatch);

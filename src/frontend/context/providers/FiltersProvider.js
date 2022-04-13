@@ -6,7 +6,7 @@ import { useVideos } from "./VideosProvider";
 const FiltersContext = createContext();
 
 const filtersInitialState = {
-  filterBy: null,
+  filterBy: "All",
 };
 
 export const FiltersProvider = ({ children }) => {
@@ -24,7 +24,7 @@ export const FiltersProvider = ({ children }) => {
     filtersState.filterBy
   );
 
-  console.log(filteredProducts, "<<<<<");
+  console.log(filteredProducts);
 
   return (
     <FiltersContext.Provider

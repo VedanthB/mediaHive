@@ -8,17 +8,21 @@ const ExplorePage = () => {
 
   return (
     <div className="explorePage__container">
-      {/* drop down to select categories  */}
       <div className="mt-10 flex justify-start">
         <FiltersDropdownSelect />
       </div>
-      {/* video cards mapped */}
-      <div className="videoCard__container">
+      <div className="spacer-3rem"></div>
+
+      <div className="videoCard__container grid">
         {filteredVideos &&
           filteredVideos.map((video) => (
             <VideoDisplayCard video={video} key={video._id} />
           ))}
       </div>
+
+      <div className="spacer-3rem"></div>
+      <div className="spacer-3rem"></div>
+      <div className="spacer-3rem"></div>
     </div>
   );
 };

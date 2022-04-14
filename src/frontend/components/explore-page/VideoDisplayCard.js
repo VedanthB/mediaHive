@@ -24,9 +24,9 @@ const VideoDisplayCard = ({ video }) => {
       </div>
 
       <div className="videoCard__body">
-        <h3>{video.title}</h3>
+        <h3 className="mb-2">{video.title}</h3>
 
-        <div className="flex align-items-center">
+        <div className="flex align-items-center mb-2">
           <img
             className="rounded-full h-10 w-10"
             src={categoryImage ? categoryImage : ""}
@@ -38,7 +38,7 @@ const VideoDisplayCard = ({ video }) => {
 
         <p> {video.desc} </p>
 
-        <div className="videoCard__actions flex justify-between mt-8">
+        <div className="videoCard__actions flex justify-between mt-4">
           <i className="text-2xl fa-solid fa-circle-plus"></i>
           <div>
             <i className="text-2xl mr-3 fa-solid fa-clock"></i>

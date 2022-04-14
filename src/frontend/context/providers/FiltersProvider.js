@@ -19,16 +19,13 @@ export const FiltersProvider = ({ children }) => {
     videosState: { videos },
   } = useVideos();
 
-  const filteredProducts = filterVideosByCategory(
-    videos,
-    filtersState.filterBy
-  );
+  const filteredVideos = filterVideosByCategory(videos, filtersState.filterBy);
 
-  console.log(filteredProducts);
+  console.log(filteredVideos);
 
   return (
     <FiltersContext.Provider
-      value={{ filtersState, filtersDispatch, filteredProducts }}
+      value={{ filtersState, filtersDispatch, filteredVideos }}
     >
       {children}
     </FiltersContext.Provider>

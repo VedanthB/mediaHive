@@ -1,0 +1,60 @@
+.videoCard {
+  max-width: 300px;
+  overflow: hidden;
+  height: 400px;
+  border-radius: 10px;
+  box-shadow: rgb(0 0 0 / 69%) 0px 26px 30px -10px,
+    rgb(0 0 0 / 73%) 0px 16px 10px -10px;
+}
+
+.videoCard:hover {
+  box-shadow: rgb(0 0 0 / 80%) 0px 40px 58px -16px,
+    rgb(0 0 0 / 72%) 0px 30px 22px -10px;
+  transform: scale(1.05);
+  border-color: rgba(249, 249, 249, 0.8);
+}
+
+.videoCard__hero__img {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.videoCard__hero__img > i {
+  opacity: 0;
+}
+
+.videoCard__hero__img:hover > i {
+  opacity: 1;
+}
+.videoCard__hero__img > i:hover {
+  opacity: 0.9;
+}
+
+.videoCard__hero__img > img {
+  width: 100%;
+  object-fit: cover;
+  height: 200px;
+  display: block;
+  cursor: pointer;
+}
+
+.videoCard__body {
+  padding: 1rem;
+}
+
+.videoCard__body h3 {
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-transform: capitalize;
+  cursor: pointer;
+}
+
+.videoCard__body p {
+  width: 100%;
+  overflow: clip;
+  white-space: pre-line;
+  text-overflow: clip;
+  height: 3rem;
+}

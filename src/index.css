@@ -1,4 +1,4 @@
-@import url('https://argon-css.netlify.app/components/index.css');
+@import url("https://argon-css.netlify.app/components/index.css");
 
 html {
   scroll-behavior: smooth;
@@ -9,7 +9,7 @@ html {
 }
 
 :root {
-  --secondary-color: '#FFEEA3';
+  --secondary-color: "#FFEEA3";
 }
 
 body {
@@ -43,7 +43,13 @@ a {
 }
 
 /* ---------------- NavMenu ------------ */
-@import url('./frontend/styles/nav-links.css');
+@import url("./frontend/styles/nav-links.css");
 
 /* ---------------- LandingPage ------------ */
-@import url('./frontend/styles/landing-page.css');
+@import url("./frontend/styles/landing-page.css");
+
+/* ---------------- ExplorePage ------------ */
+@import url("./frontend/styles/explore-page.css");
+
+/* ---------------- videoCard ------------ */
+@import url("./frontend/styles/video-card.css");

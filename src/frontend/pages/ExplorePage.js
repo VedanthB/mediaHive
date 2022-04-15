@@ -1,6 +1,5 @@
 import React from "react";
-import { FiltersDropdownSelect } from "../components";
-import VideoDisplayCard from "../components/explore-page/VideoDisplayCard";
+import { FiltersDropdownSelect, VideoDisplayCard } from "../components";
 import { useFilters } from "../context/providers";
 
 const ExplorePage = () => {

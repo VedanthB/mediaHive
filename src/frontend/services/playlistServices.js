@@ -5,3 +5,14 @@ export const getAllPlaylistsService = (token) => {
     headers: { authorization: token },
   });
 };
+
+export const createPlaylistService = (token, playlistData) => {
+  console.log(playlistData);
+  return axios.post(
+    "/api/user/playlists",
+    { playlist: playlistData },
+    {
+      headers: { authorization: token },
+    }
+  );
+};

@@ -1,5 +1,5 @@
-import { Response } from "miragejs";
-import { requiresAuth } from "../utils/authUtils";
+import { Response } from 'miragejs';
+import { requiresAuth } from '../utils/authUtils';
 
 /**
  * All the routes related to User History are present here.
@@ -19,7 +19,7 @@ export const getHistoryVideosHandler = function (schema, request) {
         404,
         {},
         {
-          errors: ["The email you entered is not Registered. Not Found error"],
+          errors: ['The email you entered is not Registered. Not Found error']
         }
       );
     }
@@ -29,7 +29,7 @@ export const getHistoryVideosHandler = function (schema, request) {
       500,
       {},
       {
-        error,
+        error
       }
     );
   }
@@ -49,7 +49,7 @@ export const addVideoToHistoryHandler = function (schema, request) {
         404,
         {},
         {
-          errors: ["The email you entered is not Registered. Not Found error"],
+          errors: ['The email you entered is not Registered. Not Found error']
         }
       );
     }
@@ -59,7 +59,7 @@ export const addVideoToHistoryHandler = function (schema, request) {
         409,
         {},
         {
-          errors: ["The video is already in your history"],
+          errors: ['The video is already in your history']
         }
       );
     }
@@ -70,7 +70,7 @@ export const addVideoToHistoryHandler = function (schema, request) {
       500,
       {},
       {
-        error,
+        error
       }
     );
   }
@@ -89,7 +89,7 @@ export const removeVideoFromHistoryHandler = function (schema, request) {
         404,
         {},
         {
-          errors: ["The email you entered is not Registered. Not Found error"],
+          errors: ['The email you entered is not Registered. Not Found error']
         }
       );
     }
@@ -102,7 +102,7 @@ export const removeVideoFromHistoryHandler = function (schema, request) {
       500,
       {},
       {
-        error,
+        error
       }
     );
   }
@@ -121,7 +121,7 @@ export const clearHistoryHandler = function (schema, request) {
         404,
         {},
         {
-          errors: ["The email you entered is not Registered. Not Found error"],
+          errors: ['The email you entered is not Registered. Not Found error']
         }
       );
     }
@@ -132,7 +132,7 @@ export const clearHistoryHandler = function (schema, request) {
       500,
       {},
       {
-        error,
+        error
       }
     );
   }

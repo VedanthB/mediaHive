@@ -5,4 +5,5 @@ export {
   getAllPlaylists,
   createPlaylist,
   addToPlaylist,
+  deletePlaylist,
 } from "./playlistUtils";

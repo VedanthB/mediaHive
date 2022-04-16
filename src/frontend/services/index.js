@@ -6,4 +6,5 @@ export {
   createPlaylistService,
   addVideoToPlaylistService,
   removeVideoFromPlaylistService,
+  deletePlaylistService,
 } from "./playlistServices";

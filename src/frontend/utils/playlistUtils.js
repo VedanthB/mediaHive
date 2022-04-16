@@ -2,6 +2,7 @@ import { playlistActions } from "../context/constants";
 import {
   addVideoToPlaylistService,
   createPlaylistService,
+  deletePlaylistService,
   getAllPlaylistsService,
   removeVideoFromPlaylistService,
 } from "../services";
@@ -101,6 +102,29 @@ export const removeVideoFromPlaylist = async (
         payload: playlist,
       });
       console.log("deleted video from playlist");
+    }
+  } catch (error) {
+    playlistDispatch({
+      type: playlistActions.ERROR,
+      payload: error,
+    });
+  }
+};
+
+export const deletePlaylist = async (token, playlistId, playlistDispatch) => {
+  try {
+    playlistDispatch({ type: playlistActions.LOADING });
+
+    const {
+      data: { playlists },
+      status,
+    } = await deletePlaylistService(token, playlistId);
+
+    if (status >= 200 && status < 300) {
+      playlistDispatch({
+        type: playlistActions.DELETE_PLAYLIST,
+        payload: playlists,
+      });
     }
   } catch (error) {
     playlistDispatch({

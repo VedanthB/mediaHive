@@ -31,3 +31,9 @@ export const removeVideoFromPlaylistService = (token, playlistId, videoId) => {
     headers: { authorization: token },
   });
 };
+
+export const deletePlaylistService = (token, playlistId) => {
+  return axios.delete(`/api/user/playlists/${playlistId}`, {
+    headers: { authorization: token },
+  });
+};

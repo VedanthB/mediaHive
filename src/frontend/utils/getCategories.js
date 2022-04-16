@@ -1,5 +1,5 @@
-import { categoryActions } from '../context/constants';
-import { getCategoriesService } from '../services';
+import { categoryActions } from "../context/constants";
+import { getCategoriesService } from "../services";
 
 export const getCategories = async (categoryDispatch) => {
   try {
@@ -7,11 +7,14 @@ export const getCategories = async (categoryDispatch) => {
 
     const {
       data: { categories },
-      status
+      status,
     } = await getCategoriesService();
 
     if (status >= 200 && status < 300) {
-      categoryDispatch({ type: categoryActions.GET_CATEGORIES, payload: categories });
+      categoryDispatch({
+        type: categoryActions.GET_CATEGORIES,
+        payload: categories,
+      });
     }
   } catch (error) {
     categoryDispatch({ type: categoryActions.ERROR, payload: error });

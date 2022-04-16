@@ -1,0 +1,28 @@
+.explorePage__container {
+  position: relative;
+  min-height: 100vh;
+  overflow-x: hidden;
+  display: block;
+  top: 5rem;
+  padding: 1rem;
+}
+
+.explorePage__container::after {
+  background: url("https://res.cloudinary.com/supertramp69420/image/upload/v1649247526/mediaHive/home-background_e6zavp.png")
+    center center / cover no-repeat fixed;
+  content: "";
+  position: absolute;
+  inset: 0px;
+  opacity: 1;
+  z-index: -1;
+}
+
+/* ----------------------------------------------------------- */
+
+.videoCard__container {
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+}
+
+.videoCard__item__container {
+}

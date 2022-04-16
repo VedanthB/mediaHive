@@ -1,13 +1,13 @@
-import React from 'react';
+import React from "react";
 
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes } from "react-router-dom";
 
 // mockman
-import Mockman from 'mockman-js';
+import Mockman from "mockman-js";
 
 // pages
-import { ExplorePage, LandingPage, LoginPage, SignupPage } from '../pages';
-import PrivateRoutes from './PrivateRoutes';
+import { ExplorePage, LandingPage, LoginPage, SignupPage } from "../pages";
+import PrivateRoutes from "./PrivateRoutes";
 
 const WebsiteRoutes = () => {
   return (

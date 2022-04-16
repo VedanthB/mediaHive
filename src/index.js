@@ -1,11 +1,16 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import { makeServer } from './server';
+import React from "react";
+import ReactDOM from "react-dom";
+import "./index.css";
+import App from "./App";
+import { makeServer } from "./server";
 
-import { BrowserRouter as Router } from 'react-router-dom';
-import { AuthProvider, CategoryProvider } from './frontend/context/providers';
+import { BrowserRouter as Router } from "react-router-dom";
+import {
+  AuthProvider,
+  CategoryProvider,
+  FiltersProvider,
+  VideosProvider,
+} from "./frontend/context/providers";
 
 // Call make Server
 makeServer();
@@ -15,10 +20,14 @@ ReactDOM.render(
     <Router>
       <CategoryProvider>
         <AuthProvider>
-          <App />
+          <VideosProvider>
+            <FiltersProvider>
+              <App />
+            </FiltersProvider>
+          </VideosProvider>
         </AuthProvider>
       </CategoryProvider>
     </Router>
   </React.StrictMode>,
-  document.getElementById('root')
+  document.getElementById("root")
 );

@@ -1,9 +1,9 @@
-import axios from 'axios';
+import axios from "axios";
 
 export const loginService = (userData) => {
-  return axios.post('api/auth/login', userData);
+  return axios.post("api/auth/login", userData);
 };
 
 export const signupService = (userData) => {
-  return axios.post('api/auth/signup', userData);
+  return axios.post("api/auth/signup", userData);
 };

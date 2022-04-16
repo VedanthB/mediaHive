@@ -1,5 +1,5 @@
-import axios from 'axios';
+import axios from "axios";
 
 export const getCategoriesService = () => {
-  return axios.get('/api/categories');
+  return axios.get("/api/categories");
 };

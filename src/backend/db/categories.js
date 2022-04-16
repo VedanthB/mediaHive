@@ -1,4 +1,4 @@
-import { v4 as uuid } from 'uuid';
+import { v4 as uuid } from "uuid";
 
 /**
  * Category Database can be added here.
@@ -8,42 +8,42 @@ import { v4 as uuid } from 'uuid';
 export const categories = [
   {
     _id: uuid(),
-    categoryName: 'Disney',
+    categoryName: "Disney",
     categoryImg:
-      'https://res.cloudinary.com/supertramp69420/image/upload/v1649247527/mediaHive/viewers-disney_gbivhz.png',
+      "https://res.cloudinary.com/supertramp69420/image/upload/v1649247527/mediaHive/viewers-disney_gbivhz.png",
     categoryVideo:
-      'https://res.cloudinary.com/supertramp69420/video/upload/v1649247530/mediaHive/1564674844-disney_vw1f6t.mp4'
+      "https://res.cloudinary.com/supertramp69420/video/upload/v1649247530/mediaHive/1564674844-disney_vw1f6t.mp4",
   },
   {
     _id: uuid(),
-    categoryName: 'Pixar',
+    categoryName: "Pixar",
     categoryImg:
-      'https://res.cloudinary.com/supertramp69420/image/upload/v1649247523/mediaHive/viewers-pixar_bggwew.png',
+      "https://res.cloudinary.com/supertramp69420/image/upload/v1649247523/mediaHive/viewers-pixar_bggwew.png",
     categoryVideo:
-      'https://res.cloudinary.com/supertramp69420/video/upload/v1649247529/mediaHive/1564676714-pixar_ucz4zp.mp4'
+      "https://res.cloudinary.com/supertramp69420/video/upload/v1649247529/mediaHive/1564676714-pixar_ucz4zp.mp4",
   },
   {
     _id: uuid(),
-    categoryName: 'Marvel',
+    categoryName: "Marvel",
     categoryImg:
-      'https://res.cloudinary.com/supertramp69420/image/upload/v1649247525/mediaHive/viewers-marvel_whhqex.png',
+      "https://res.cloudinary.com/supertramp69420/image/upload/v1649247525/mediaHive/viewers-marvel_whhqex.png",
     categoryVideo:
-      'https://res.cloudinary.com/supertramp69420/video/upload/v1649247530/mediaHive/1564676115-marvel_ujhqmb.mp4'
+      "https://res.cloudinary.com/supertramp69420/video/upload/v1649247530/mediaHive/1564676115-marvel_ujhqmb.mp4",
   },
   {
     _id: uuid(),
-    categoryName: 'Star Wars',
+    categoryName: "Star Wars",
     categoryImg:
-      'https://res.cloudinary.com/supertramp69420/image/upload/v1649247522/mediaHive/viewers-starwars_w3ngvz.png',
+      "https://res.cloudinary.com/supertramp69420/image/upload/v1649247522/mediaHive/viewers-starwars_w3ngvz.png",
     categoryVideo:
-      'https://res.cloudinary.com/supertramp69420/video/upload/v1649247529/mediaHive/1608229455-star-wars_whyu6s.mp4'
+      "https://res.cloudinary.com/supertramp69420/video/upload/v1649247529/mediaHive/1608229455-star-wars_whyu6s.mp4",
   },
   {
     _id: uuid(),
-    categoryName: 'Nat Geo',
+    categoryName: "Nat Geo",
     categoryImg:
-      'https://res.cloudinary.com/supertramp69420/image/upload/v1649247524/mediaHive/viewers-national_v3hltj.png',
+      "https://res.cloudinary.com/supertramp69420/image/upload/v1649247524/mediaHive/viewers-national_v3hltj.png",
     categoryVideo:
-      'https://res.cloudinary.com/supertramp69420/video/upload/v1649247530/mediaHive/1564676296-national-geographic_heh0za.mp4'
-  }
+      "https://res.cloudinary.com/supertramp69420/video/upload/v1649247530/mediaHive/1564676296-national-geographic_heh0za.mp4",
+  },
 ];

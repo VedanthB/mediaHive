@@ -4,20 +4,22 @@
   overflow-x: hidden;
   display: block;
   top: 5rem;
-  padding: 0 calc(3.5vw + 5px);
+  padding: 1rem;
 }
 
 .landingPage__container::after {
-  background: url('https://res.cloudinary.com/supertramp69420/image/upload/v1649247526/mediaHive/home-background_e6zavp.png')
+  background: url("https://res.cloudinary.com/supertramp69420/image/upload/v1649247526/mediaHive/home-background_e6zavp.png")
     center center / cover no-repeat fixed;
-  content: '';
+  content: "";
   position: absolute;
   inset: 0px;
   opacity: 1;
   z-index: -1;
 }
 
-/*  featured categories */
+/* ---------------------------------------------------------------- */
+
+/*  featured categories  start */
 
 .featuredCategories__container {
   margin-top: 30px;
@@ -34,12 +36,15 @@
   }
 } */
 
-/* category card */
+/*  featured categories  end */
+/* ---------------------------------------------------------------- */
+/* category card start */
 
 .categoryCard {
   padding-top: 56.25%;
   border-radius: 10px;
-  box-shadow: rgb(0 0 0 / 69%) 0px 26px 30px -10px, rgb(0 0 0 / 73%) 0px 16px 10px -10px;
+  box-shadow: rgb(0 0 0 / 69%) 0px 26px 30px -10px,
+    rgb(0 0 0 / 73%) 0px 16px 10px -10px;
   cursor: pointer;
   overflow: hidden;
   position: relative;
@@ -68,10 +73,13 @@
   z-index: 0;
 }
 .categoryCard:hover {
-  box-shadow: rgb(0 0 0 / 80%) 0px 40px 58px -16px, rgb(0 0 0 / 72%) 0px 30px 22px -10px;
+  box-shadow: rgb(0 0 0 / 80%) 0px 40px 58px -16px,
+    rgb(0 0 0 / 72%) 0px 30px 22px -10px;
   transform: scale(1.05);
   border-color: rgba(249, 249, 249, 0.8);
 }
 .categoryCard:hover video {
   opacity: 1;
 }
+
+/* category card end */

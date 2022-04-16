@@ -9,10 +9,10 @@ export const getAllWatchLaterVideosService = (token) => {
 export const addVideoToWatchLaterService = (token, video) => {
   return axios.post(
     "/api/user/watchlater",
+    { video },
     {
       headers: { authorization: token },
-    },
-    { video: video }
+    }
   );
 };
 

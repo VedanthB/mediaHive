@@ -19,6 +19,8 @@ export const getAllWatchLaterVideos = async (token, watchLaterDispatch) => {
         type: watchLaterActions.GET_ALL_WATCH_LATER_VIDEOS,
         payload: watchlater,
       });
+
+      console.log("get all watch later");
     }
   } catch (error) {
     watchLaterDispatch({
@@ -46,6 +48,8 @@ export const addVideoToWatchLater = async (
         type: watchLaterActions.ADD_VIDEO_TO_WATCH_LATER,
         payload: watchlater,
       });
+
+      console.log("added to watch later");
     }
   } catch (error) {
     watchLaterDispatch({

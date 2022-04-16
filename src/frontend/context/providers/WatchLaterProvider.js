@@ -1,4 +1,5 @@
 import { useReducer, useContext, createContext, useEffect } from "react";
+import { getAllWatchLaterVideos } from "../../utils/watchLaterUtils";
 import { watchLaterReducer } from "../reducer";
 
 const WatchLaterContext = createContext();
@@ -15,7 +16,13 @@ export const WatchLaterProvider = ({ children }) => {
     initWatchLaterState
   );
 
-  useEffect(() => {}, []);
+  useEffect(() => {
+    let encodedToken = localStorage.getItem("mediaHive_JWT_Token");
+
+    if (encodedToken) {
+      getAllWatchLaterVideos(encodedToken, watchLaterDispatch);
+    }
+  }, []);
 
   console.log(watchLaterState);
 

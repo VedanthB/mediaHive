@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { useCategory } from "../../context/providers";
+import { useAuth, useCategory, useWatchLater } from "../../context/providers";
+import { addVideoToWatchLater, removeVideoToWatchLater } from "../../utils";
 import Modal from "../Modal";
 import AddToPlaylist from "./AddToPlaylist";
 
@@ -10,6 +11,15 @@ const VideoDisplayCard = ({ video }) => {
     categoryState: { categories },
   } = useCategory();
 
+  const {
+    authState: { encodedToken },
+  } = useAuth();
+
+  const {
+    watchLaterState: { watchLater },
+    watchLaterDispatch,
+  } = useWatchLater();
+
   const getCategoryImg = (category) => {
     let foundCategory = categories.find(
       (item) => item.categoryName === category
@@ -19,6 +29,8 @@ const VideoDisplayCard = ({ video }) => {
   };
 
   const categoryImage = getCategoryImg(video.category);
+
+  const isInWatchLater = watchLater.find((item) => item._id === video._id);
 
   return (
     <>
@@ -49,7 +61,30 @@ const VideoDisplayCard = ({ video }) => {
               className="text-2xl text-hover-amber-500 cursor-pointer fa-solid fa-circle-plus"
             ></i>
             <div>
-              <i className="text-2xl text-hover-amber-500 cursor-pointer  mr-3 fa-solid fa-clock"></i>
+              {isInWatchLater ? (
+                <i
+                  onClick={() =>
+                    removeVideoToWatchLater(
+                      encodedToken,
+                      video._id,
+                      watchLaterDispatch
+                    )
+                  }
+                  className="text-2xl text-amber-500  cursor-pointer  mr-3 fa-solid fa-clock"
+                ></i>
+              ) : (
+                <i
+                  onClick={() =>
+                    addVideoToWatchLater(
+                      encodedToken,
+                      video,
+                      watchLaterDispatch
+                    )
+                  }
+                  className="text-2xl text-hover-amber-500 cursor-pointer  mr-3 fa-solid fa-clock"
+                ></i>
+              )}
+
               <i className="text-2xl text-hover-amber-500 cursor-pointer fa-solid fa-heart-circle-bolt"></i>
             </div>
           </div>

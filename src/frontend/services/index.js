@@ -4,4 +4,5 @@ export { getVideosService } from "./videoServices";
 export {
   getAllPlaylistsService,
   createPlaylistService,
+  addVideoToPlaylistService,
 } from "./playlistServices";

@@ -7,10 +7,19 @@ export const getAllPlaylistsService = (token) => {
 };
 
 export const createPlaylistService = (token, playlistData) => {
-  console.log(playlistData);
   return axios.post(
     "/api/user/playlists",
     { playlist: playlistData },
+    {
+      headers: { authorization: token },
+    }
+  );
+};
+
+export const addVideoToPlaylistService = (token, video, playlistId) => {
+  return axios.post(
+    `/api/user/playlists/${playlistId}`,
+    { video },
     {
       headers: { authorization: token },
     }

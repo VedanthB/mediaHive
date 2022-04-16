@@ -14,7 +14,21 @@ export const playlistReducer = (state, action) => {
       return { ...state, playlists: payload, loading: false };
 
     case playlistActions.ADD_PLAYLIST:
-      return { ...state, playlists: payload, loading: false };
+      return {
+        ...state,
+        playlists: payload,
+        loading: false,
+      };
+
+    case playlistActions.ADD_VIDEO_TO_PLAYLIST:
+      return {
+        ...state,
+        playlists: [
+          ...state.playlists.filter((playlist) => playlist._id !== payload._id),
+          payload,
+        ],
+        loading: false,
+      };
 
     default:
       return state;

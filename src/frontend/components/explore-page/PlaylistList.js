@@ -2,7 +2,7 @@ import React from "react";
 import { usePlaylist } from "../../context/providers";
 import PlaylistListItem from "./PlaylistListItem";
 
-function PlaylistList() {
+function PlaylistList({ video }) {
   const {
     playlistState: { playlists },
   } = usePlaylist();
@@ -12,7 +12,12 @@ function PlaylistList() {
       <li className="text-black pt-3 pb-3 font-semibold text-lg">Playlists</li>
       {playlists &&
         playlists.map((playlist) => (
-          <PlaylistListItem key={playlist._id} playlistName={playlist.title} />
+          <PlaylistListItem
+            key={playlist._id}
+            playlistName={playlist.title}
+            video={video}
+            playlistId={playlist._id}
+          />
         ))}
     </ul>
   );

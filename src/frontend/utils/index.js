@@ -7,3 +7,9 @@ export {
   addToPlaylist,
   deletePlaylist,
 } from "./playlistUtils";
+
+export {
+  getAllWatchLaterVideos,
+  addVideoToWatchLater,
+  removeVideoToWatchLater,
+} from "./watchLaterUtils";

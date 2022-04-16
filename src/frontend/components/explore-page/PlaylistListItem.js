@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useAuth, usePlaylist } from "../../context/providers";
 import { addToPlaylist } from "../../utils";
+import { removeVideoFromPlaylist } from "../../utils/playlistUtils";
 
 function PlaylistListItem({ playlistName, playlistId, video }) {
   const [addedToPlaylist, setAddedToPlaylist] = useState(false);
@@ -14,6 +15,15 @@ function PlaylistListItem({ playlistName, playlistId, video }) {
   useEffect(() => {
     if (addedToPlaylist && encodedToken) {
       addToPlaylist(encodedToken, playlistId, video, playlistDispatch);
+    }
+
+    if (addedToPlaylist === false && encodedToken) {
+      removeVideoFromPlaylist(
+        encodedToken,
+        playlistId,
+        video._id,
+        playlistDispatch
+      );
     }
   }, [addedToPlaylist]);
 

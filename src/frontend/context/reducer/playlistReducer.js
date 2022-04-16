@@ -30,6 +30,16 @@ export const playlistReducer = (state, action) => {
         loading: false,
       };
 
+    case playlistActions.DELETE_VIDEO_FROM_PLAYLIST:
+      return {
+        ...state,
+        playlists: [
+          ...state.playlists.filter((playlist) => playlist._id !== payload._id),
+          payload,
+        ],
+        loading: false,
+      };
+
     default:
       return state;
   }

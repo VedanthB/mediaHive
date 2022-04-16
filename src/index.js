@@ -11,6 +11,7 @@ import {
   FiltersProvider,
   PlaylistProvider,
   VideosProvider,
+  WatchLaterProvider,
 } from "./frontend/context/providers";
 
 // Call make Server
@@ -24,7 +25,9 @@ ReactDOM.render(
           <VideosProvider>
             <FiltersProvider>
               <PlaylistProvider>
-                <App />
+                <WatchLaterProvider>
+                  <App />
+                </WatchLaterProvider>
               </PlaylistProvider>
             </FiltersProvider>
           </VideosProvider>

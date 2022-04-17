@@ -5,3 +5,4 @@ export { FiltersProvider, useFilters } from "./FiltersProvider";
 export { PlaylistProvider, usePlaylist } from "./PlaylistProvider";
 export { WatchLaterProvider, useWatchLater } from "./WatchLaterProvider";
 export { LikedVideosProvider, useLikedVideos } from "./LikedVideosProvider";
+export { HistoryProvider, useHistory } from "./HistoryProvider";

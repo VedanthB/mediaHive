@@ -58,3 +58,6 @@ a {
 
 /* ---------------- videoCard ------------ */
 @import url("./frontend/styles/video-card.css");
+
+/* ---------------- video page ------------ */
+@import url("./frontend/styles/video-page.css");

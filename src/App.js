@@ -1,5 +1,3 @@
-import "./App.css";
-
 import { Footer, Header } from "./frontend/components";
 
 import { WebsiteRoutes } from "./frontend/routes";

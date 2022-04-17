@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import {
   useAuth,
   useCategory,
@@ -44,10 +45,10 @@ const VideoDisplayCard = ({ video }) => {
   return (
     <>
       <div className="videoCard">
-        <div className="videoCard__hero__img">
+        <Link to={`/explore/${video._id}`} className="videoCard__hero__img">
           <i className="absolute text-6xl text-amber-500 cursor-pointer fa-solid fa-play"></i>
           <img src={video.img} alt="" />
-        </div>
+        </Link>
 
         <div className="videoCard__body">
           <h3 className="mb-2">{video.title}</h3>

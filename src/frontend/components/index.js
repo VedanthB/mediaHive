@@ -6,6 +6,7 @@ export { default as LoginCard } from "./auth/LoginCard";
 export { default as SignupCard } from "./auth/SignupCard";
 export { default as FiltersDropdownSelect } from "./explore-page/FiltersDropdownSelect";
 export { default as VideoDisplayCard } from "./explore-page/VideoDisplayCard";
+export { default as AddToPlaylist } from "./explore-page/AddToPlaylist";
 export { default as Modal } from "./Modal";
 export { default as Input } from "./Input";
 export { default as TextArea } from "./TextArea";

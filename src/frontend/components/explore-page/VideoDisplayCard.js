@@ -1,6 +1,17 @@
 import React, { useState } from "react";
-import { useAuth, useCategory, useWatchLater } from "../../context/providers";
-import { addVideoToWatchLater, removeVideoToWatchLater } from "../../utils";
+import {
+  useAuth,
+  useCategory,
+  useLikedVideos,
+  useWatchLater,
+} from "../../context/providers";
+import { getCategoryImg } from "../../helpers";
+import {
+  addVideoToLikedVideos,
+  addVideoToWatchLater,
+  removeVideoFromLikedVideos,
+  removeVideoToWatchLater,
+} from "../../utils";
 import Modal from "../Modal";
 import AddToPlaylist from "./AddToPlaylist";
 
@@ -20,17 +31,15 @@ const VideoDisplayCard = ({ video }) => {
     watchLaterDispatch,
   } = useWatchLater();
 
-  const getCategoryImg = (category) => {
-    let foundCategory = categories.find(
-      (item) => item.categoryName === category
-    );
+  const {
+    likedVideosState: { likedVideos },
+    likedVideosDispatch,
+  } = useLikedVideos();
 
-    return foundCategory?.categoryImg;
-  };
-
-  const categoryImage = getCategoryImg(video.category);
+  const categoryImage = getCategoryImg(video.category, categories);
 
   const isInWatchLater = watchLater.find((item) => item._id === video._id);
+  const isInLikedVideos = likedVideos.find((item) => item._id === video._id);
 
   return (
     <>
@@ -84,8 +93,29 @@ const VideoDisplayCard = ({ video }) => {
                   className="text-2xl text-hover-amber-500 cursor-pointer  mr-3 fa-solid fa-clock"
                 ></i>
               )}
-
-              <i className="text-2xl text-hover-amber-500 cursor-pointer fa-solid fa-heart-circle-bolt"></i>
+              {isInLikedVideos ? (
+                <i
+                  onClick={() =>
+                    removeVideoFromLikedVideos(
+                      encodedToken,
+                      video._id,
+                      likedVideosDispatch
+                    )
+                  }
+                  className="text-2xl text-amber-500  cursor-pointer  mr-3 fa-solid fa-heart-circle-bolt"
+                ></i>
+              ) : (
+                <i
+                  onClick={() =>
+                    addVideoToLikedVideos(
+                      encodedToken,
+                      video,
+                      likedVideosDispatch
+                    )
+                  }
+                  className="text-2xl text-hover-amber-500 cursor-pointer  mr-3 fa-solid fa-heart-circle-bolt"
+                ></i>
+              )}
             </div>
           </div>
         </div>

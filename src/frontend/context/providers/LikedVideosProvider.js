@@ -1,5 +1,5 @@
 import { useReducer, useContext, createContext, useEffect } from "react";
-import { getAllLikedVideosVideos } from "../../utils/likedVideosUtils";
+import { getAllLikedVideos } from "../../utils";
 import { likedVideosReducer } from "../reducer";
 
 const LikedVideosContext = createContext();
@@ -20,7 +20,7 @@ export const LikedVideosProvider = ({ children }) => {
     let encodedToken = localStorage.getItem("mediaHive_JWT_Token");
 
     if (encodedToken) {
-      getAllLikedVideosVideos(encodedToken, likedVideosDispatch);
+      getAllLikedVideos(encodedToken, likedVideosDispatch);
     }
   }, []);
 

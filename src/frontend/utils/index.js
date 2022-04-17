@@ -13,3 +13,9 @@ export {
   addVideoToWatchLater,
   removeVideoToWatchLater,
 } from "./watchLaterUtils";
+
+export {
+  getAllLikedVideos,
+  addVideoToLikedVideos,
+  removeVideoFromLikedVideos,
+} from "./likedVideosUtils";

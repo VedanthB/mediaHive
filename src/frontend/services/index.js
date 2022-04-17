@@ -14,3 +14,9 @@ export {
   addVideoToWatchLaterService,
   removeVideoToWatchLaterService,
 } from "./watchLaterServices";
+
+export {
+  removeVideoFromLikedVideosService,
+  addVideoToLikedVideosService,
+  getAllLikedVideosService,
+} from "./likedVideosServices";

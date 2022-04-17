@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useAuth, usePlaylist } from "../../context/providers";
-import { addToPlaylist } from "../../utils";
+import { addToPlaylist, deletePlaylist } from "../../utils";
+import { removeVideoFromPlaylist } from "../../utils/playlistUtils";
 
 function PlaylistListItem({ playlistName, playlistId, video }) {
   const [addedToPlaylist, setAddedToPlaylist] = useState(false);
@@ -15,6 +16,15 @@ function PlaylistListItem({ playlistName, playlistId, video }) {
     if (addedToPlaylist && encodedToken) {
       addToPlaylist(encodedToken, playlistId, video, playlistDispatch);
     }
+
+    if (addedToPlaylist === false && encodedToken) {
+      removeVideoFromPlaylist(
+        encodedToken,
+        playlistId,
+        video._id,
+        playlistDispatch
+      );
+    }
   }, [addedToPlaylist]);
 
   return (
@@ -28,6 +38,13 @@ function PlaylistListItem({ playlistName, playlistId, video }) {
         />
         {playlistName}
       </label>
+
+      <i
+        onClick={() =>
+          deletePlaylist(encodedToken, playlistId, playlistDispatch)
+        }
+        className="fa-solid fa-trash-can text-amber-500 ml-3 text-hover-red-500 cursor-pointer"
+      ></i>
     </li>
   );
 }

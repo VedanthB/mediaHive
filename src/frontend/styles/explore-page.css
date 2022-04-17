@@ -24,5 +24,15 @@
   gap: 2rem;
 }
 
-.videoCard__item__container {
+.likedVideos__container {
+  display: grid;
+  min-height: 100vh;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  position: relative;
+  overflow-x: hidden;
+  top: 5rem;
+  padding: 1rem;
+  margin-top: 6rem;
+  margin-bottom: 8rem;
 }

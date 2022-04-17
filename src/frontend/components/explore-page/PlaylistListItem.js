@@ -16,15 +16,6 @@ function PlaylistListItem({ playlistName, playlistId, video }) {
     if (addedToPlaylist && encodedToken) {
       addToPlaylist(encodedToken, playlistId, video, playlistDispatch);
     }
-
-    if (addedToPlaylist === false && encodedToken) {
-      removeVideoFromPlaylist(
-        encodedToken,
-        playlistId,
-        video._id,
-        playlistDispatch
-      );
-    }
   }, [addedToPlaylist]);
 
   return (
@@ -33,7 +24,17 @@ function PlaylistListItem({ playlistName, playlistId, video }) {
         <input
           type="checkbox"
           value={addedToPlaylist}
-          onChange={(e) => setAddedToPlaylist(e.target.checked)}
+          onChange={(e) => {
+            if (addedToPlaylist === false && encodedToken) {
+              removeVideoFromPlaylist(
+                encodedToken,
+                playlistId,
+                video._id,
+                playlistDispatch
+              );
+            }
+            setAddedToPlaylist(e.target.checked);
+          }}
           className="mr-3"
         />
         {playlistName}

@@ -4,7 +4,7 @@ import Modal from "../Modal";
 import CreatePlaylist from "./CreatePlaylist";
 import PlaylistPageListItem from "./PlaylistPageListItem";
 
-const PlaylistPageList = () => {
+const PlaylistPageList = ({ selectedPlaylist, setSelectedPlaylist }) => {
   const [showModal, setShowModal] = useState(false);
 
   const {
@@ -33,7 +33,8 @@ const PlaylistPageList = () => {
             <PlaylistPageListItem
               key={playlist._id}
               playlistName={playlist.title}
-              // video={video}
+              selectedPlaylist={selectedPlaylist}
+              setSelectedPlaylist={setSelectedPlaylist}
               playlistId={playlist._id}
             />
           ))}

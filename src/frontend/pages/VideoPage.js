@@ -83,12 +83,14 @@ const VideoPage = () => {
                 playing={false}
                 url={`https://www.youtube-nocookie.com/embed/${videoId}`}
                 onStart={() =>
-                  addVideoToHistory(
-                    encodedToken,
-                    currentVideoDetails,
-                    historyDispatch,
-                    showToast
-                  )
+                  encodedToken
+                    ? addVideoToHistory(
+                        encodedToken,
+                        currentVideoDetails,
+                        historyDispatch,
+                        showToast
+                      )
+                    : showToast("Please login first!", "error")
                 }
               />
             </div>
@@ -117,24 +119,28 @@ const VideoPage = () => {
                 {isInWatchLater ? (
                   <i
                     onClick={() =>
-                      removeVideoToWatchLater(
-                        encodedToken,
-                        currentVideoDetails._id,
-                        watchLaterDispatch,
-                        showToast
-                      )
+                      encodedToken
+                        ? removeVideoToWatchLater(
+                            encodedToken,
+                            currentVideoDetails._id,
+                            watchLaterDispatch,
+                            showToast
+                          )
+                        : showToast("Please login first!", "error")
                     }
                     className="text-2xl text-amber-500  cursor-pointer fa-solid fa-clock"
                   ></i>
                 ) : (
                   <i
                     onClick={() =>
-                      addVideoToWatchLater(
-                        encodedToken,
-                        currentVideoDetails,
-                        watchLaterDispatch,
-                        showToast
-                      )
+                      encodedToken
+                        ? addVideoToWatchLater(
+                            encodedToken,
+                            currentVideoDetails,
+                            watchLaterDispatch,
+                            showToast
+                          )
+                        : showToast("Please login first!", "error")
                     }
                     className="text-2xl text-hover-amber-500 cursor-pointer  fa-solid fa-clock"
                   ></i>
@@ -142,24 +148,28 @@ const VideoPage = () => {
                 {isInLikedVideos ? (
                   <i
                     onClick={() =>
-                      removeVideoFromLikedVideos(
-                        encodedToken,
-                        currentVideoDetails._id,
-                        likedVideosDispatch,
-                        showToast
-                      )
+                      encodedToken
+                        ? removeVideoFromLikedVideos(
+                            encodedToken,
+                            currentVideoDetails._id,
+                            likedVideosDispatch,
+                            showToast
+                          )
+                        : showToast("Please login first!", "error")
                     }
                     className="text-2xl text-amber-500  cursor-pointer  mr-3 fa-solid fa-heart-circle-bolt"
                   ></i>
                 ) : (
                   <i
                     onClick={() =>
-                      addVideoToLikedVideos(
-                        encodedToken,
-                        currentVideoDetails,
-                        likedVideosDispatch,
-                        showToast
-                      )
+                      encodedToken
+                        ? addVideoToLikedVideos(
+                            encodedToken,
+                            currentVideoDetails,
+                            likedVideosDispatch,
+                            showToast
+                          )
+                        : showToast("Please login first!", "error")
                     }
                     className="text-2xl text-hover-amber-500 cursor-pointer  mr-3 fa-solid fa-heart-circle-bolt"
                   ></i>

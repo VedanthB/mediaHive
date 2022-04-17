@@ -28,6 +28,10 @@ function PlaylistListItem({ playlistName, playlistId, video }) {
         showToast
       );
     }
+
+    if (!encodedToken) {
+      showToast("Please login first!", "error");
+    }
   }, [addedToPlaylist]);
 
   let isInPlaylist = playlists.find((item) => item._id === playlistId);
@@ -53,6 +57,10 @@ function PlaylistListItem({ playlistName, playlistId, video }) {
               );
             }
 
+            if (!encodedToken) {
+              showToast("Please login first!", "error");
+            }
+
             setAddedToPlaylist(e.target.checked);
           }}
           className="mr-3"
@@ -62,7 +70,14 @@ function PlaylistListItem({ playlistName, playlistId, video }) {
 
       <i
         onClick={() =>
-          deletePlaylist(encodedToken, playlistId, playlistDispatch, showToast)
+          encodedToken
+            ? deletePlaylist(
+                encodedToken,
+                playlistId,
+                playlistDispatch,
+                showToast
+              )
+            : showToast("Please login first!", "error")
         }
         className="fa-solid fa-trash-can text-amber-500 ml-3 text-hover-red-500 cursor-pointer"
       ></i>

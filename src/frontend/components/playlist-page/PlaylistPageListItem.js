@@ -31,6 +31,10 @@ const PlaylistPageListItem = ({
         showToast
       );
     }
+
+    if (!encodedToken) {
+      showToast("Please login first!", "error");
+    }
   }, [addedToPlaylist]);
 
   return (
@@ -47,7 +51,14 @@ const PlaylistPageListItem = ({
 
       <i
         onClick={() =>
-          deletePlaylist(encodedToken, playlistId, playlistDispatch, showToast)
+          encodedToken
+            ? deletePlaylist(
+                encodedToken,
+                playlistId,
+                playlistDispatch,
+                showToast
+              )
+            : showToast("Please login first!", "error")
         }
         className="fa-solid fa-trash-can text-amber-500 ml-3 text-hover-red-500 cursor-pointer"
       ></i>

@@ -53,12 +53,15 @@ const AddToPlaylistForm = () => {
 
       <button
         onClick={() => {
-          createPlaylist(
-            encodedToken,
-            playlistDetails,
-            playlistDispatch,
-            showToast
-          );
+          encodedToken
+            ? createPlaylist(
+                encodedToken,
+                playlistDetails,
+                playlistDispatch,
+                showToast
+              )
+            : showToast("Please login first!", "error");
+
           setPlaylistDetails(initPlaylistState);
         }}
         className="btn btn-solid-amber shadow-lg text-white"

@@ -76,24 +76,28 @@ const LikedVideoCard = ({ video }) => {
               {isInWatchLater ? (
                 <i
                   onClick={() =>
-                    removeVideoToWatchLater(
-                      encodedToken,
-                      video._id,
-                      watchLaterDispatch,
-                      showToast
-                    )
+                    encodedToken
+                      ? removeVideoToWatchLater(
+                          encodedToken,
+                          video._id,
+                          watchLaterDispatch,
+                          showToast
+                        )
+                      : showToast("Please login first!", "error")
                   }
                   className="text-2xl text-amber-500  cursor-pointer  mr-3 fa-solid fa-clock"
                 ></i>
               ) : (
                 <i
                   onClick={() =>
-                    addVideoToWatchLater(
-                      encodedToken,
-                      video,
-                      watchLaterDispatch,
-                      showToast
-                    )
+                    encodedToken
+                      ? addVideoToWatchLater(
+                          encodedToken,
+                          video,
+                          watchLaterDispatch,
+                          showToast
+                        )
+                      : showToast("Please login first!", "error")
                   }
                   className="text-2xl text-hover-amber-500 cursor-pointer  mr-3 fa-solid fa-clock"
                 ></i>
@@ -101,24 +105,28 @@ const LikedVideoCard = ({ video }) => {
               {isInLikedVideos ? (
                 <i
                   onClick={() =>
-                    removeVideoFromLikedVideos(
-                      encodedToken,
-                      video._id,
-                      likedVideosDispatch,
-                      showToast
-                    )
+                    encodedToken
+                      ? removeVideoFromLikedVideos(
+                          encodedToken,
+                          video._id,
+                          likedVideosDispatch,
+                          showToast
+                        )
+                      : showToast("Please login first!", "error")
                   }
                   className="text-2xl text-amber-500  cursor-pointer  mr-3 fa-solid fa-heart-circle-bolt"
                 ></i>
               ) : (
                 <i
                   onClick={() =>
-                    addVideoToLikedVideos(
-                      encodedToken,
-                      video,
-                      likedVideosDispatch,
-                      showToast
-                    )
+                    encodedToken
+                      ? addVideoToLikedVideos(
+                          encodedToken,
+                          video,
+                          likedVideosDispatch,
+                          showToast
+                        )
+                      : showToast("Please login first!", "error")
                   }
                   className="text-2xl text-hover-amber-500 cursor-pointer  mr-3 fa-solid fa-heart-circle-bolt"
                 ></i>

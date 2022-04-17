@@ -11,10 +11,20 @@ const LikedVideos = () => {
 
   return (
     <div className="likedVideos__container">
-      {likedVideos &&
-        likedVideos.map((video) => (
-          <LikedVideoCard video={video} key={video._id} />
-        ))}
+      <div className="spacer-3rem"></div>
+      <div className="spacer-3rem"></div>
+      <div className="spacer-3rem"></div>
+
+      <div className="likedVideos__main">
+        {likedVideos &&
+          likedVideos.map((video) => (
+            <LikedVideoCard video={video} key={video._id} />
+          ))}
+      </div>
+
+      <div className="spacer-3rem"></div>
+      <div className="spacer-3rem"></div>
+      <div className="spacer-3rem"></div>
     </div>
   );
 };

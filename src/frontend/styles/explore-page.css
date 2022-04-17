@@ -25,14 +25,27 @@
 }
 
 .likedVideos__container {
-  display: grid;
+  display: block;
   min-height: 100vh;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 2rem;
+
   position: relative;
   overflow-x: hidden;
   top: 5rem;
   padding: 1rem;
-  margin-top: 6rem;
-  margin-bottom: 8rem;
+}
+
+.likedVideos__container::after {
+  background: url("https://res.cloudinary.com/supertramp69420/image/upload/v1649247526/mediaHive/home-background_e6zavp.png")
+    center center / cover no-repeat fixed;
+  content: "";
+  position: absolute;
+  inset: 0px;
+  opacity: 1;
+  z-index: -1;
+}
+
+.likedVideos__main {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
 }

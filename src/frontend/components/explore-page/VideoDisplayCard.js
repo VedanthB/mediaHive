@@ -59,7 +59,7 @@ const VideoDisplayCard = ({ video }) => {
         showModal={showModal}
         setShowModal={setShowModal}
         modalBody={<AddToPlaylist />}
-        modalTitle="Add to Playlist"
+        modalTitle={"Add to Playlist"}
       />
     </>
   );

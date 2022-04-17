@@ -1,20 +1,28 @@
 import React, { useState } from "react";
+import { useAuth, usePlaylist } from "../../context/providers";
+import { createPlaylist } from "../../utils";
 import Input from "../Input";
 import TextArea from "../TextArea";
 
 const initPlaylistState = {
-  name: "",
-  desc: "",
+  title: "",
+  description: "",
 };
 
 const AddToPlaylistForm = () => {
   const [playlistDetails, setPlaylistDetails] = useState(initPlaylistState);
 
+  const { playlistDispatch } = usePlaylist();
+
+  const {
+    authState: { encodedToken },
+  } = useAuth();
+
   return (
     <div>
       <Input
-        value={playlistDetails.name}
-        name="name"
+        value={playlistDetails.title}
+        name="title"
         onChange={(e) => {
           const { name, value } = e.target;
 
@@ -26,8 +34,8 @@ const AddToPlaylistForm = () => {
       <div className="spacer-1rem"></div>
 
       <TextArea
-        value={playlistDetails.desc}
-        name="desc"
+        value={playlistDetails.description}
+        name="description"
         onChange={(e) => {
           const { name, value } = e.target;
 
@@ -40,7 +48,13 @@ const AddToPlaylistForm = () => {
       <div className="spacer-3rem"></div>
       <div className="spacer-1rem"></div>
 
-      <button className="btn btn-solid-amber shadow-lg text-white">
+      <button
+        onClick={() => {
+          createPlaylist(encodedToken, playlistDetails, playlistDispatch);
+          setPlaylistDetails(initPlaylistState);
+        }}
+        className="btn btn-solid-amber shadow-lg text-white"
+      >
         create playlist
       </button>
     </div>

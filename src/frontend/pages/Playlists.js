@@ -13,8 +13,6 @@ const Playlists = () => {
     selectedPlaylist !== null &&
     playlists.find((playlist) => playlist.title === selectedPlaylist);
 
-  console.log(videosInPlaylist);
-
   return (
     <div className="playlistPage__container">
       <div className="h-full w-full">

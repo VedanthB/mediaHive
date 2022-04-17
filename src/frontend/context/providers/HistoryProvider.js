@@ -27,8 +27,6 @@ export const HistoryProvider = ({ children }) => {
     }
   }, []);
 
-  console.log(historyState);
-
   return (
     <HistoryContext.Provider value={{ historyState, historyDispatch }}>
       {children}

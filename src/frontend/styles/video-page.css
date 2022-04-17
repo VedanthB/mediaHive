@@ -1,0 +1,55 @@
+.videoPage__container {
+  position: relative;
+  min-height: 100vh;
+  overflow-x: hidden;
+  display: block;
+  top: 5rem;
+  padding: 1rem;
+}
+
+.videoPage__container::after {
+  background: url("https://res.cloudinary.com/supertramp69420/image/upload/v1649247526/mediaHive/home-background_e6zavp.png")
+    center center / cover no-repeat fixed;
+  content: "";
+  position: absolute;
+  inset: 0px;
+  opacity: 1;
+  z-index: -1;
+}
+
+.videoPage__main {
+}
+
+.videoPage__video {
+  height: 500px;
+}
+
+.videoPage__details {
+  margin-top: 2rem;
+}
+
+.videoPage__details > h3 {
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-transform: capitalize;
+  cursor: pointer;
+}
+
+.videoPage__details > p {
+  margin-top: 2rem;
+  width: 100%;
+  overflow: clip;
+  white-space: pre-line;
+  text-overflow: clip;
+  height: 3rem;
+}
+
+.videoPage__actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.videoPage__notes {
+}

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/providers";
+import { useToast } from "../../hooks";
 import { signupUser } from "../../utils";
 
 const initSignupState = {
@@ -16,6 +17,8 @@ const SignupCard = () => {
   const { authDispatch } = useAuth();
 
   const navigate = useNavigate();
+
+  const { showToast } = useToast();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -151,29 +154,32 @@ const SignupCard = () => {
           e.preventDefault();
 
           setUserData({
-            firstName: "John",
-            lastName: "Doe",
-            email: "johndoe@gmail.com",
+            email: "test@gmail.com",
             password: "123456",
+            firstName: "test",
+            lastName: "man",
           });
 
           signupUser(
             {
-              firstName: "John",
-              lastName: "Doe",
-              email: "johndoe@gmail.com",
+              email: "test@gmail.com",
               password: "123456",
+              firstName: "test",
+              lastName: "man",
             },
             authDispatch,
-            navigate
+            navigate,
+            showToast
           );
+
+          setUserData(initSignupState);
         }}
       >
         Signup With Test Credentials
       </button>
 
       <button
-        onClick={() => signupUser(userData, authDispatch, navigate)}
+        onClick={() => signupUser(userData, authDispatch, navigate, showToast)}
         className="btn btn-solid-amber justify-center w-full text-white"
       >
         Sign Up

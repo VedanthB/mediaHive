@@ -11,9 +11,9 @@ function PlaylistList({ video }) {
     <ul className="flex flex-col">
       <li className="text-black pt-3 pb-3 font-semibold text-lg">Playlists</li>
       {playlists &&
-        playlists.map((playlist) => (
+        playlists.map((playlist, i) => (
           <PlaylistListItem
-            key={playlist._id}
+            key={i}
             playlistName={playlist.title}
             video={video}
             playlistId={playlist._id}

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/providers";
+import { useToast } from "../../hooks";
 import { loginUser } from "../../utils";
 
 const initLoginState = {
@@ -12,6 +13,8 @@ const LoginCard = () => {
   const [userData, setUserData] = useState(initLoginState);
 
   const { authDispatch } = useAuth();
+
+  const { showToast } = useToast();
 
   const navigate = useNavigate();
 
@@ -106,7 +109,8 @@ const LoginCard = () => {
               password: "123456",
             },
             authDispatch,
-            navigate
+            navigate,
+            showToast
           );
         }}
       >
@@ -118,7 +122,7 @@ const LoginCard = () => {
         className="btn btn-solid-amber justify-center w-full text-white"
         onClick={(e) => {
           e.preventDefault();
-          loginUser(userData, authDispatch, navigate);
+          loginUser(userData, authDispatch, navigate, showToast);
         }}
       >
         Login

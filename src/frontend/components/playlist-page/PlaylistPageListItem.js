@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useAuth, usePlaylist } from "../../context/providers";
+import { useToast } from "../../hooks";
 import { addToPlaylist, deletePlaylist } from "../../utils";
 
 const PlaylistPageListItem = ({
@@ -16,11 +17,19 @@ const PlaylistPageListItem = ({
     authState: { encodedToken },
   } = useAuth();
 
+  const { showToast } = useToast();
+
   const { playlistDispatch } = usePlaylist();
 
   useEffect(() => {
     if (addedToPlaylist && encodedToken) {
-      addToPlaylist(encodedToken, playlistId, video, playlistDispatch);
+      addToPlaylist(
+        encodedToken,
+        playlistId,
+        video,
+        playlistDispatch,
+        showToast
+      );
     }
   }, [addedToPlaylist]);
 
@@ -38,7 +47,7 @@ const PlaylistPageListItem = ({
 
       <i
         onClick={() =>
-          deletePlaylist(encodedToken, playlistId, playlistDispatch)
+          deletePlaylist(encodedToken, playlistId, playlistDispatch, showToast)
         }
         className="fa-solid fa-trash-can text-amber-500 ml-3 text-hover-red-500 cursor-pointer"
       ></i>

@@ -1,7 +1,12 @@
 import { authActions } from "../context/constants";
 import { loginService, signupService } from "../services";
 
-export const signupUser = async (userData, authDispatch, callback) => {
+export const signupUser = async (
+  userData,
+  authDispatch,
+  callback,
+  showToast
+) => {
   try {
     authDispatch({ type: authActions.LOADING });
 
@@ -19,16 +24,25 @@ export const signupUser = async (userData, authDispatch, callback) => {
       });
 
       callback("/");
+
+      showToast("Signup successful", "success");
     }
   } catch (error) {
     authDispatch({
       type: authActions.ERROR,
       payload: error,
     });
+
+    showToast(`${error}`, "error");
   }
 };
 
-export const loginUser = async (userData, authDispatch, callback) => {
+export const loginUser = async (
+  userData,
+  authDispatch,
+  callback,
+  showToast
+) => {
   try {
     authDispatch({ type: authActions.LOADING });
 
@@ -46,11 +60,15 @@ export const loginUser = async (userData, authDispatch, callback) => {
       localStorage.setItem("mediaHive_JWT_Token", encodedToken);
 
       callback("/");
+
+      showToast("Login successful", "success");
     }
   } catch (error) {
     authDispatch({
       type: authActions.ERROR,
       payload: error,
     });
+
+    showToast(`${error}`, "error");
   }
 };

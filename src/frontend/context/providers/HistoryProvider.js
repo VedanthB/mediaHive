@@ -1,4 +1,5 @@
 import { useReducer, useContext, createContext, useEffect } from "react";
+import { getAllHistory } from "../../utils";
 import { historyReducer } from "../reducer";
 
 const HistoryContext = createContext();
@@ -9,7 +10,7 @@ const initHistoryState = {
   error: null,
 };
 
-export const WatchLaterProvider = ({ children }) => {
+export const HistoryProvider = ({ children }) => {
   const [historyState, historyDispatch] = useReducer(
     historyReducer,
     initHistoryState
@@ -19,7 +20,7 @@ export const WatchLaterProvider = ({ children }) => {
     let encodedToken = localStorage.getItem("mediaHive_JWT_Token");
 
     if (encodedToken) {
-      //   getAllHistory(encodedToken, historyDispatch);
+      getAllHistory(encodedToken, historyDispatch);
     }
   }, []);
 

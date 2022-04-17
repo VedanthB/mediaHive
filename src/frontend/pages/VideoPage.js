@@ -4,12 +4,14 @@ import ReactPlayer from "react-player/youtube";
 import {
   useAuth,
   useCategory,
+  useHistory,
   useLikedVideos,
   useVideos,
   useWatchLater,
 } from "../context/providers";
 import { getCategoryImg } from "../helpers";
 import {
+  addVideoToHistory,
   addVideoToLikedVideos,
   addVideoToWatchLater,
   removeVideoFromLikedVideos,
@@ -48,6 +50,13 @@ const VideoPage = () => {
     likedVideosDispatch,
   } = useLikedVideos();
 
+  const {
+    historyState: { history },
+    historyDispatch,
+  } = useHistory();
+
+  console.log(historyDispatch, history);
+
   const categoryImage = getCategoryImg(
     currentVideoDetails.category,
     categories
@@ -59,6 +68,17 @@ const VideoPage = () => {
   const isInLikedVideos = likedVideos.find(
     (item) => item._id === currentVideoDetails._id
   );
+  const isInHistory = history.find(
+    (item) => item._id === currentVideoDetails._id
+  );
+
+  const handleHistory = () => {
+    if (encodedToken && !isInHistory) {
+      addVideoToHistory(encodedToken, historyDispatch);
+    }
+  };
+
+  console.log(handleHistory);
 
   return (
     <>
@@ -72,7 +92,13 @@ const VideoPage = () => {
                 controls
                 playing={false}
                 url={`https://www.youtube-nocookie.com/embed/${videoId}`}
-                // onStart={handleHistory}
+                onStart={() =>
+                  addVideoToHistory(
+                    encodedToken,
+                    currentVideoDetails,
+                    historyDispatch
+                  )
+                }
               />
             </div>
             <div className="videoPage__details">

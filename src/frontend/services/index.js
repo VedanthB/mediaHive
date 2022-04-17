@@ -20,3 +20,10 @@ export {
   addVideoToLikedVideosService,
   getAllLikedVideosService,
 } from "./likedVideosServices";
+
+export {
+  getAllHistoryService,
+  addVideoToHistoryService,
+  removeVideoFromHistoryService,
+  deleteAllHistoryService,
+} from "./historyServices.js";

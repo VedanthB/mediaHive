@@ -8,6 +8,7 @@ import {
   useWatchLater,
 } from "../../context/providers";
 import { getCategoryImg } from "../../helpers";
+import { useToast } from "../../hooks";
 import {
   addVideoToLikedVideos,
   addVideoToWatchLater,
@@ -38,6 +39,8 @@ const HistoryPageCard = ({ video }) => {
     likedVideosState: { likedVideos },
     likedVideosDispatch,
   } = useLikedVideos();
+
+  const { showToast } = useToast();
 
   const { historyDispatch } = useHistory();
 
@@ -81,12 +84,16 @@ const HistoryPageCard = ({ video }) => {
 
             <button
               onClick={() =>
-                removeVideoFromHistory(encodedToken, video._id, historyDispatch)
+                removeVideoFromHistory(
+                  encodedToken,
+                  video._id,
+                  historyDispatch,
+                  showToast
+                )
               }
               style={{ padding: "0px", background: "transparent" }}
               className="btn btn-link-amber"
             >
-              {" "}
               remove history
             </button>
             {/* <button className="btn btn-solid-amber shadow-lg text-white">
@@ -101,7 +108,8 @@ const HistoryPageCard = ({ video }) => {
                     removeVideoToWatchLater(
                       encodedToken,
                       video._id,
-                      watchLaterDispatch
+                      watchLaterDispatch,
+                      showToast
                     )
                   }
                   className="text-2xl text-amber-500  cursor-pointer  mr-3 fa-solid fa-clock"
@@ -112,7 +120,8 @@ const HistoryPageCard = ({ video }) => {
                     addVideoToWatchLater(
                       encodedToken,
                       video,
-                      watchLaterDispatch
+                      watchLaterDispatch,
+                      showToast
                     )
                   }
                   className="text-2xl text-hover-amber-500 cursor-pointer  mr-3 fa-solid fa-clock"
@@ -124,7 +133,8 @@ const HistoryPageCard = ({ video }) => {
                     removeVideoFromLikedVideos(
                       encodedToken,
                       video._id,
-                      likedVideosDispatch
+                      likedVideosDispatch,
+                      showToast
                     )
                   }
                   className="text-2xl text-amber-500  cursor-pointer  mr-3 fa-solid fa-heart-circle-bolt"
@@ -135,7 +145,8 @@ const HistoryPageCard = ({ video }) => {
                     addVideoToLikedVideos(
                       encodedToken,
                       video,
-                      likedVideosDispatch
+                      likedVideosDispatch,
+                      showToast
                     )
                   }
                   className="text-2xl text-hover-amber-500 cursor-pointer  mr-3 fa-solid fa-heart-circle-bolt"

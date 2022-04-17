@@ -1,4 +1,5 @@
 import { useReducer, useContext, createContext, useEffect } from "react";
+import { useToast } from "../../hooks";
 import { getAllWatchLaterVideos } from "../../utils/watchLaterUtils";
 import { watchLaterReducer } from "../reducer";
 
@@ -16,15 +17,15 @@ export const WatchLaterProvider = ({ children }) => {
     initWatchLaterState
   );
 
+  const { showToast } = useToast();
+
   useEffect(() => {
     let encodedToken = localStorage.getItem("mediaHive_JWT_Token");
 
     if (encodedToken) {
-      getAllWatchLaterVideos(encodedToken, watchLaterDispatch);
+      getAllWatchLaterVideos(encodedToken, watchLaterDispatch, showToast);
     }
   }, []);
-
-  console.log(watchLaterState);
 
   return (
     <WatchLaterContext.Provider value={{ watchLaterState, watchLaterDispatch }}>

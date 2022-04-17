@@ -1,4 +1,5 @@
 import { useReducer, useContext, createContext, useEffect } from "react";
+import { useToast } from "../../hooks";
 import { getAllPlaylists } from "../../utils";
 import { playlistReducer } from "../reducer";
 
@@ -16,15 +17,15 @@ export const PlaylistProvider = ({ children }) => {
     initPlaylistState
   );
 
+  const { showToast } = useToast();
+
   useEffect(() => {
     let encodedToken = localStorage.getItem("mediaHive_JWT_Token");
 
     if (encodedToken) {
-      getAllPlaylists(encodedToken, playlistDispatch);
+      getAllPlaylists(encodedToken, playlistDispatch, showToast);
     }
   }, []);
-
-  console.log(playlistState);
 
   return (
     <PlaylistContext.Provider value={{ playlistState, playlistDispatch }}>

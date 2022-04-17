@@ -7,6 +7,7 @@ import {
   useWatchLater,
 } from "../../context/providers";
 import { getCategoryImg } from "../../helpers";
+import { useToast } from "../../hooks";
 import {
   addVideoToLikedVideos,
   addVideoToWatchLater,
@@ -36,6 +37,8 @@ const VideoDisplayCard = ({ video }) => {
     likedVideosState: { likedVideos },
     likedVideosDispatch,
   } = useLikedVideos();
+
+  const { showToast } = useToast();
 
   const categoryImage = getCategoryImg(video.category, categories);
 
@@ -77,7 +80,8 @@ const VideoDisplayCard = ({ video }) => {
                     removeVideoToWatchLater(
                       encodedToken,
                       video._id,
-                      watchLaterDispatch
+                      watchLaterDispatch,
+                      showToast
                     )
                   }
                   className="text-2xl text-amber-500  cursor-pointer  mr-3 fa-solid fa-clock"
@@ -88,7 +92,8 @@ const VideoDisplayCard = ({ video }) => {
                     addVideoToWatchLater(
                       encodedToken,
                       video,
-                      watchLaterDispatch
+                      watchLaterDispatch,
+                      showToast
                     )
                   }
                   className="text-2xl text-hover-amber-500 cursor-pointer  mr-3 fa-solid fa-clock"
@@ -100,7 +105,8 @@ const VideoDisplayCard = ({ video }) => {
                     removeVideoFromLikedVideos(
                       encodedToken,
                       video._id,
-                      likedVideosDispatch
+                      likedVideosDispatch,
+                      showToast
                     )
                   }
                   className="text-2xl text-amber-500  cursor-pointer  mr-3 fa-solid fa-heart-circle-bolt"
@@ -111,7 +117,8 @@ const VideoDisplayCard = ({ video }) => {
                     addVideoToLikedVideos(
                       encodedToken,
                       video,
-                      likedVideosDispatch
+                      likedVideosDispatch,
+                      showToast
                     )
                   }
                   className="text-2xl text-hover-amber-500 cursor-pointer  mr-3 fa-solid fa-heart-circle-bolt"

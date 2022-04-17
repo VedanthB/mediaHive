@@ -13,6 +13,10 @@ const WatchLater = () => {
       <div className="spacer-3rem"></div>
       <div className="spacer-3rem"></div>
 
+      <div className="text-center">
+        {watchLater.length === 0 && <h4>please add videos to watch later</h4>}
+      </div>
+
       <div className="likedVideos__main">
         {watchLater &&
           watchLater.map((video) => (

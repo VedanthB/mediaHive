@@ -1,4 +1,5 @@
 import { useReducer, useContext, createContext, useEffect } from "react";
+import { useToast } from "../../hooks";
 import { getAllHistory } from "../../utils";
 import { historyReducer } from "../reducer";
 
@@ -16,11 +17,13 @@ export const HistoryProvider = ({ children }) => {
     initHistoryState
   );
 
+  const { showToast } = useToast();
+
   useEffect(() => {
     let encodedToken = localStorage.getItem("mediaHive_JWT_Token");
 
     if (encodedToken) {
-      getAllHistory(encodedToken, historyDispatch);
+      getAllHistory(encodedToken, historyDispatch, showToast);
     }
   }, []);
 

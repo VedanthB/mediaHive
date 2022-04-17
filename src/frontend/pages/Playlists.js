@@ -29,6 +29,13 @@ const Playlists = () => {
             {/* videos in the playlist */}
             <div className="spacer-3rem"></div>
             <div className="spacer-3rem"></div>
+
+            <div className="text-center">
+              {videosInPlaylist.length === 0 && (
+                <h4>please add videos to playlist</h4>
+              )}
+            </div>
+
             <div
               style={{ gridTemplateColumns: "repeat(3, 1fr)", gap: "1rem" }}
               className="grid"

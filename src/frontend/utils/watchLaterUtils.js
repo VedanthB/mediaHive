@@ -5,7 +5,11 @@ import {
   removeVideoToWatchLaterService,
 } from "../services";
 
-export const getAllWatchLaterVideos = async (token, watchLaterDispatch) => {
+export const getAllWatchLaterVideos = async (
+  token,
+  watchLaterDispatch,
+  showToast
+) => {
   try {
     watchLaterDispatch({ type: watchLaterActions.LOADING });
 
@@ -19,21 +23,23 @@ export const getAllWatchLaterVideos = async (token, watchLaterDispatch) => {
         type: watchLaterActions.GET_ALL_WATCH_LATER_VIDEOS,
         payload: watchlater,
       });
-
-      console.log("get all watch later");
+      showToast("Get all watch later videos successfully!", "success");
     }
   } catch (error) {
     watchLaterDispatch({
       type: watchLaterActions.ERROR,
       payload: error,
     });
+
+    showToast(`${error}`, "error");
   }
 };
 
 export const addVideoToWatchLater = async (
   token,
   video,
-  watchLaterDispatch
+  watchLaterDispatch,
+  showToast
 ) => {
   try {
     watchLaterDispatch({ type: watchLaterActions.LOADING });
@@ -48,21 +54,23 @@ export const addVideoToWatchLater = async (
         type: watchLaterActions.ADD_VIDEO_TO_WATCH_LATER,
         payload: watchlater,
       });
-
-      console.log("added to watch later");
+      showToast("Added video to watch later successfully!", "success");
     }
   } catch (error) {
     watchLaterDispatch({
       type: watchLaterActions.ERROR,
       payload: error,
     });
+
+    showToast(`${error}`, "error");
   }
 };
 
 export const removeVideoToWatchLater = async (
   token,
   videoId,
-  watchLaterDispatch
+  watchLaterDispatch,
+  showToast
 ) => {
   try {
     watchLaterDispatch({ type: watchLaterActions.LOADING });
@@ -77,11 +85,15 @@ export const removeVideoToWatchLater = async (
         type: watchLaterActions.REMOVE_VIDEO_TO_WATCH_LATER,
         payload: watchlater,
       });
+
+      showToast("Remove video from watch later successfully!", "success");
     }
   } catch (error) {
     watchLaterDispatch({
       type: watchLaterActions.ERROR,
       payload: error,
     });
+
+    showToast(`${error}`, "error");
   }
 };

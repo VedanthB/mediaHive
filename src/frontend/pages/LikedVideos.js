@@ -13,6 +13,12 @@ const LikedVideos = () => {
       <div className="spacer-3rem"></div>
       <div className="spacer-3rem"></div>
 
+      <div className="text-center">
+        {likedVideos.length === 0 && (
+          <h4>please like videos to see them in your likes</h4>
+        )}
+      </div>
+
       <div className="likedVideos__main">
         {likedVideos &&
           likedVideos.map((video) => (

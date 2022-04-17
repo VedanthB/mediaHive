@@ -1,4 +1,5 @@
 import { useReducer, useContext, createContext, useEffect } from "react";
+import { useToast } from "../../hooks";
 import { getAllLikedVideos } from "../../utils";
 import { likedVideosReducer } from "../reducer";
 
@@ -16,15 +17,15 @@ export const LikedVideosProvider = ({ children }) => {
     initLikedVideosState
   );
 
+  const { showToast } = useToast();
+
   useEffect(() => {
     let encodedToken = localStorage.getItem("mediaHive_JWT_Token");
 
     if (encodedToken) {
-      getAllLikedVideos(encodedToken, likedVideosDispatch);
+      getAllLikedVideos(encodedToken, likedVideosDispatch, showToast);
     }
   }, []);
-
-  console.log(likedVideosState);
 
   return (
     <LikedVideosContext.Provider

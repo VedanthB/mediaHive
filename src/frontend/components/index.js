@@ -11,3 +11,4 @@ export { default as Modal } from "./Modal";
 export { default as Input } from "./Input";
 export { default as TextArea } from "./TextArea";
 export { default as LikedVideoCard } from "./likedVideos/LikedVideoCard";
+export { default as PlaylistPageList } from "./playlist-page/PlaylistPageList";

@@ -35,7 +35,7 @@ const WebsiteRoutes = () => {
         <Route path="/likedVideos" element={<LikedVideos />} />
 
         <Route path="/watchLater" element={<WatchLater />} />
-        <Route path="/playlist" element={<Playlists />} />
+        <Route path="/playlists" element={<Playlists />} />
         <Route path="/history" element={<History />} />
       </Route>
 

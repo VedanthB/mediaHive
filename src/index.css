@@ -61,3 +61,6 @@ a {
 
 /* ---------------- video page ------------ */
 @import url("./frontend/styles/video-page.css");
+
+/* ---------------- playlist page ------------ */
+@import url("./frontend/styles/playlist-page.css");

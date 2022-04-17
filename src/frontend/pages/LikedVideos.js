@@ -7,8 +7,6 @@ const LikedVideos = () => {
     likedVideosState: { likedVideos },
   } = useLikedVideos();
 
-  console.log(likedVideos);
-
   return (
     <div className="likedVideos__container">
       <div className="spacer-3rem"></div>

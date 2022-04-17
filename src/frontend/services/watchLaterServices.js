@@ -17,7 +17,7 @@ export const addVideoToWatchLaterService = (token, video) => {
 };
 
 export const removeVideoToWatchLaterService = (token, videoId) => {
-  return axios.delete(`/api/user/${videoId}`, {
+  return axios.delete(`/api/user/watchlater/${videoId}`, {
     headers: { authorization: token },
   });
 };

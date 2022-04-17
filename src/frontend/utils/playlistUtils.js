@@ -1,5 +1,9 @@
 import { playlistActions } from "../context/constants";
-import { createPlaylistService, getAllPlaylistsService } from "../services";
+import {
+  addVideoToPlaylistService,
+  createPlaylistService,
+  getAllPlaylistsService,
+} from "../services";
 
 export const getAllPlaylists = async (token, playlistDispatch) => {
   try {
@@ -37,6 +41,33 @@ export const createPlaylist = async (token, playlistData, playlistDispatch) => {
       playlistDispatch({
         type: playlistActions.ADD_PLAYLIST,
         payload: playlists,
+      });
+    }
+  } catch (error) {
+    playlistDispatch({
+      type: playlistActions.ERROR,
+      payload: error,
+    });
+  }
+};
+
+export const addToPlaylist = async (
+  token,
+  playlistId,
+  video,
+  playlistDispatch
+) => {
+  try {
+    playlistDispatch({ type: playlistActions.LOADING });
+    const {
+      data: { playlist },
+      status,
+    } = await addVideoToPlaylistService(token, video, playlistId);
+
+    if (status >= 200 && status < 300) {
+      playlistDispatch({
+        type: playlistActions.ADD_VIDEO_TO_PLAYLIST,
+        payload: playlist,
       });
     }
   } catch (error) {

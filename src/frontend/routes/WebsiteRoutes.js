@@ -14,6 +14,10 @@ import {
   VideoPage,
 } from "../pages";
 import PrivateRoutes from "./PrivateRoutes";
+import LikedVideos from "../pages/LikedVideos";
+import WatchLater from "../pages/WatchLater";
+import Playlists from "../pages/Playlists";
+import History from "../pages/History";
 
 const WebsiteRoutes = () => {
   return (
@@ -28,11 +32,11 @@ const WebsiteRoutes = () => {
       <Route path="/signup" element={<SignupPage />} />
 
       <Route path="/" element={<PrivateRoutes />}>
-        {/* <Route path="/likedVideos" element={<LoginPage />} /> */}
+        <Route path="/likedVideos" element={<LikedVideos />} />
 
-        {/* <Route path="/watchLater" element={<LoginPage />} /> */}
-        {/* <Route path="/playlist" element={<LoginPage />} />
-        <Route path="/history" element={<LoginPage />} /> */}
+        <Route path="/watchLater" element={<WatchLater />} />
+        <Route path="/playlists" element={<Playlists />} />
+        <Route path="/history" element={<History />} />
       </Route>
 
       <Route path="/" element={<LandingPage />} />

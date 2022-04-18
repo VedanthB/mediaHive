@@ -5,3 +5,4 @@ export { filterReducer } from "./filterReducer";
 export { playlistReducer } from "./playlistReducer";
 export { watchLaterReducer } from "./watchLaterReducer";
 export { likedVideosReducer } from "./likedVideosReducer";
+export { historyReducer } from "./historyReducer";

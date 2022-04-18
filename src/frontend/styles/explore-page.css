@@ -24,5 +24,47 @@
   gap: 2rem;
 }
 
-.videoCard__item__container {
+.likedVideos__container {
+  display: block;
+  min-height: 100vh;
+
+  position: relative;
+  overflow-x: hidden;
+  top: 5rem;
+  padding: 1rem;
+}
+
+.likedVideos__container::after {
+  background: url("https://res.cloudinary.com/supertramp69420/image/upload/v1649247526/mediaHive/home-background_e6zavp.png")
+    center center / cover no-repeat fixed;
+  content: "";
+  position: absolute;
+  inset: 0px;
+  opacity: 1;
+  z-index: -1;
+}
+
+.likedVideos__main {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+}
+
+.historyPage_container {
+  position: relative;
+  min-height: 100vh;
+  overflow-x: hidden;
+  display: block;
+  top: 5rem;
+  padding: 1rem;
+}
+
+.historyPage_container::after {
+  background: url("https://res.cloudinary.com/supertramp69420/image/upload/v1649247526/mediaHive/home-background_e6zavp.png")
+    center center / cover no-repeat fixed;
+  content: "";
+  position: absolute;
+  inset: 0px;
+  opacity: 1;
+  z-index: -1;
 }

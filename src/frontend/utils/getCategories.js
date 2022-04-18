@@ -1,7 +1,7 @@
 import { categoryActions } from "../context/constants";
 import { getCategoriesService } from "../services";
 
-export const getCategories = async (categoryDispatch) => {
+export const getCategories = async (categoryDispatch, showToast) => {
   try {
     categoryDispatch({ type: categoryActions.LOADING });
 
@@ -15,8 +15,12 @@ export const getCategories = async (categoryDispatch) => {
         type: categoryActions.GET_CATEGORIES,
         payload: categories,
       });
+
+      showToast("Get all categories successfully!", "success");
     }
   } catch (error) {
     categoryDispatch({ type: categoryActions.ERROR, payload: error });
+
+    showToast(`${error}`, "error");
   }
 };

@@ -1,4 +1,5 @@
 import { createContext, useContext, useReducer, useEffect } from "react";
+import { useToast } from "../../hooks";
 import { getCategories } from "../../utils";
 import { categoryReducer } from "../reducer";
 
@@ -16,10 +17,10 @@ export const CategoryProvider = ({ children }) => {
     categoryInitState
   );
 
-  // console.log(categoryState);
+  const { showToast } = useToast();
 
   useEffect(() => {
-    getCategories(categoryDispatch);
+    getCategories(categoryDispatch, showToast);
   }, []);
 
   return (

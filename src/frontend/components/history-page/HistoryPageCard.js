@@ -8,6 +8,7 @@ import {
   useWatchLater,
 } from "../../context/providers";
 import { getCategoryImg } from "../../helpers";
+import { useToast } from "../../hooks";
 import {
   addVideoToLikedVideos,
   addVideoToWatchLater,
@@ -38,6 +39,8 @@ const HistoryPageCard = ({ video }) => {
     likedVideosState: { likedVideos },
     likedVideosDispatch,
   } = useLikedVideos();
+
+  const { showToast } = useToast();
 
   const { historyDispatch } = useHistory();
 
@@ -81,12 +84,18 @@ const HistoryPageCard = ({ video }) => {
 
             <button
               onClick={() =>
-                removeVideoFromHistory(encodedToken, video._id, historyDispatch)
+                encodedToken
+                  ? removeVideoFromHistory(
+                      encodedToken,
+                      video._id,
+                      historyDispatch,
+                      showToast
+                    )
+                  : showToast("Please login first!", "error")
               }
               style={{ padding: "0px", background: "transparent" }}
               className="btn btn-link-amber"
             >
-              {" "}
               remove history
             </button>
             {/* <button className="btn btn-solid-amber shadow-lg text-white">
@@ -98,22 +107,28 @@ const HistoryPageCard = ({ video }) => {
               {isInWatchLater ? (
                 <i
                   onClick={() =>
-                    removeVideoToWatchLater(
-                      encodedToken,
-                      video._id,
-                      watchLaterDispatch
-                    )
+                    encodedToken
+                      ? removeVideoToWatchLater(
+                          encodedToken,
+                          video._id,
+                          watchLaterDispatch,
+                          showToast
+                        )
+                      : showToast("Please login first!", "error")
                   }
                   className="text-2xl text-amber-500  cursor-pointer  mr-3 fa-solid fa-clock"
                 ></i>
               ) : (
                 <i
                   onClick={() =>
-                    addVideoToWatchLater(
-                      encodedToken,
-                      video,
-                      watchLaterDispatch
-                    )
+                    encodedToken
+                      ? addVideoToWatchLater(
+                          encodedToken,
+                          video,
+                          watchLaterDispatch,
+                          showToast
+                        )
+                      : showToast("Please login first!", "error")
                   }
                   className="text-2xl text-hover-amber-500 cursor-pointer  mr-3 fa-solid fa-clock"
                 ></i>
@@ -121,22 +136,28 @@ const HistoryPageCard = ({ video }) => {
               {isInLikedVideos ? (
                 <i
                   onClick={() =>
-                    removeVideoFromLikedVideos(
-                      encodedToken,
-                      video._id,
-                      likedVideosDispatch
-                    )
+                    encodedToken
+                      ? removeVideoFromLikedVideos(
+                          encodedToken,
+                          video._id,
+                          likedVideosDispatch,
+                          showToast
+                        )
+                      : showToast("Please login first!", "error")
                   }
                   className="text-2xl text-amber-500  cursor-pointer  mr-3 fa-solid fa-heart-circle-bolt"
                 ></i>
               ) : (
                 <i
                   onClick={() =>
-                    addVideoToLikedVideos(
-                      encodedToken,
-                      video,
-                      likedVideosDispatch
-                    )
+                    encodedToken
+                      ? addVideoToLikedVideos(
+                          encodedToken,
+                          video,
+                          likedVideosDispatch,
+                          showToast
+                        )
+                      : showToast("Please login first!", "error")
                   }
                   className="text-2xl text-hover-amber-500 cursor-pointer  mr-3 fa-solid fa-heart-circle-bolt"
                 ></i>

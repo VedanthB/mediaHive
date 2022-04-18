@@ -20,8 +20,6 @@ export const VideosProvider = ({ children }) => {
     getVideos(videosDispatch);
   }, []);
 
-  // console.log(videosState);
-
   return (
     <VideosContext.Provider value={{ videosState, videosDispatch }}>
       {children}

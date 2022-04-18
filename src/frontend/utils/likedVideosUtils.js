@@ -5,7 +5,11 @@ import {
   removeVideoFromLikedVideosService,
 } from "../services";
 
-export const getAllLikedVideos = async (token, likedVideosDispatch) => {
+export const getAllLikedVideos = async (
+  token,
+  likedVideosDispatch,
+  showToast
+) => {
   try {
     likedVideosDispatch({ type: likeVideosActions.LOADING });
 
@@ -20,20 +24,23 @@ export const getAllLikedVideos = async (token, likedVideosDispatch) => {
         payload: likes,
       });
 
-      console.log("get all liked videos");
+      showToast("Get all liked videos successfully!", "success");
     }
   } catch (error) {
     likedVideosDispatch({
       type: likeVideosActions.ERROR,
       payload: error,
     });
+
+    showToast(`${error}`, "error");
   }
 };
 
 export const addVideoToLikedVideos = async (
   token,
   video,
-  likedVideosDispatch
+  likedVideosDispatch,
+  showToast
 ) => {
   try {
     likedVideosDispatch({ type: likeVideosActions.LOADING });
@@ -49,20 +56,23 @@ export const addVideoToLikedVideos = async (
         payload: likes,
       });
 
-      console.log("added to liked ");
+      showToast("Added video to liked videos successfully!", "success");
     }
   } catch (error) {
     likedVideosDispatch({
       type: likeVideosActions.ERROR,
       payload: error,
     });
+
+    showToast(`${error}`, "error");
   }
 };
 
 export const removeVideoFromLikedVideos = async (
   token,
   videoId,
-  likedVideosDispatch
+  likedVideosDispatch,
+  showToast
 ) => {
   try {
     likedVideosDispatch({ type: likeVideosActions.LOADING });
@@ -77,11 +87,15 @@ export const removeVideoFromLikedVideos = async (
         type: likeVideosActions.REMOVE_VIDEO_FROM_LIKED_VIDEOS,
         payload: likes,
       });
+
+      showToast("Removed video from liked videos successfully!", "success");
     }
   } catch (error) {
     likedVideosDispatch({
       type: likeVideosActions.ERROR,
       payload: error,
     });
+
+    showToast(`${error}`, "error");
   }
 };

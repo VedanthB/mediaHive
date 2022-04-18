@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { authActions } from "../../context/constants";
 import { useAuth } from "../../context/providers";
+import { useToast } from "../../hooks";
 
 import Logo from "./Logo";
 import NavMenu from "./NavMenu";
@@ -12,6 +13,8 @@ const Header = () => {
     authDispatch,
   } = useAuth();
 
+  const { showToast } = useToast();
+
   return (
     <header className="nav__header">
       <Logo />
@@ -21,7 +24,10 @@ const Header = () => {
 
       {encodedToken ? (
         <div
-          onClick={() => authDispatch({ type: authActions.LOGOUT_SUCCESS })}
+          onClick={() => {
+            authDispatch({ type: authActions.LOGOUT_SUCCESS });
+            showToast("Logout Success!", "success");
+          }}
           className="btn btn-solid-amber shadow-lg text-white"
         >
           Logout

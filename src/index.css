@@ -1,4 +1,5 @@
 @import url("https://argon-css.netlify.app/components/index.css");
+@import "react-toastify/dist/ReactToastify.css";
 
 html {
   scroll-behavior: smooth;

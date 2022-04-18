@@ -7,7 +7,7 @@ import {
   removeVideoFromPlaylistService,
 } from "../services";
 
-export const getAllPlaylists = async (token, playlistDispatch) => {
+export const getAllPlaylists = async (token, playlistDispatch, showToast) => {
   try {
     playlistDispatch({ type: playlistActions.LOADING });
 
@@ -21,16 +21,25 @@ export const getAllPlaylists = async (token, playlistDispatch) => {
         type: playlistActions.GET_ALL_PLAYLISTS,
         payload: playlists,
       });
+
+      showToast("Get all playlist success!", "success");
     }
   } catch (error) {
     playlistDispatch({
       type: playlistActions.ERROR,
       payload: error,
     });
+
+    showToast(`${error}`, "error");
   }
 };
 
-export const createPlaylist = async (token, playlistData, playlistDispatch) => {
+export const createPlaylist = async (
+  token,
+  playlistData,
+  playlistDispatch,
+  showToast
+) => {
   try {
     playlistDispatch({ type: playlistActions.LOADING });
 
@@ -44,12 +53,16 @@ export const createPlaylist = async (token, playlistData, playlistDispatch) => {
         type: playlistActions.ADD_PLAYLIST,
         payload: playlists,
       });
+
+      showToast("Playlist created!", "success");
     }
   } catch (error) {
     playlistDispatch({
       type: playlistActions.ERROR,
       payload: error,
     });
+
+    showToast(`${error}`, "error");
   }
 };
 
@@ -57,7 +70,8 @@ export const addToPlaylist = async (
   token,
   playlistId,
   video,
-  playlistDispatch
+  playlistDispatch,
+  showToast
 ) => {
   try {
     playlistDispatch({ type: playlistActions.LOADING });
@@ -72,13 +86,15 @@ export const addToPlaylist = async (
         payload: playlist,
       });
 
-      console.log("add to playlist");
+      showToast("Added video to playlist!", "success");
     }
   } catch (error) {
     playlistDispatch({
       type: playlistActions.ERROR,
       payload: error,
     });
+
+    showToast(`${error}`, "error");
   }
 };
 
@@ -86,7 +102,8 @@ export const removeVideoFromPlaylist = async (
   token,
   playlistId,
   videoId,
-  playlistDispatch
+  playlistDispatch,
+  showToast
 ) => {
   try {
     playlistDispatch({ type: playlistActions.LOADING });
@@ -101,17 +118,25 @@ export const removeVideoFromPlaylist = async (
         type: playlistActions.DELETE_VIDEO_FROM_PLAYLIST,
         payload: playlist,
       });
-      console.log("deleted video from playlist");
+
+      showToast("Deleted video from playlist!", "success");
     }
   } catch (error) {
     playlistDispatch({
       type: playlistActions.ERROR,
       payload: error,
     });
+
+    showToast(`${error}`, "error");
   }
 };
 
-export const deletePlaylist = async (token, playlistId, playlistDispatch) => {
+export const deletePlaylist = async (
+  token,
+  playlistId,
+  playlistDispatch,
+  showToast
+) => {
   try {
     playlistDispatch({ type: playlistActions.LOADING });
 
@@ -125,11 +150,15 @@ export const deletePlaylist = async (token, playlistId, playlistDispatch) => {
         type: playlistActions.DELETE_PLAYLIST,
         payload: playlists,
       });
+
+      showToast("Delete playlist successful!", "success");
     }
   } catch (error) {
     playlistDispatch({
       type: playlistActions.ERROR,
       payload: error,
     });
+
+    showToast(`${error}`, "error");
   }
 };

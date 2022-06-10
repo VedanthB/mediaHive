@@ -1,7 +1,7 @@
 
 ## mediaHIve
 
-A frontend dashboard application built with React/Babel (Client), React Context API for state management, Argon CSS (my own css framework lib) . Auto formatted with Prettier, linted with ESLint. MockBee for mock backend.
+A video management application built with React/Babel (Client), React Context API for state management, Argon CSS (my own css framework lib) . Auto formatted with Prettier, linted with ESLint. MockBee for mock backend.
 
 
 ## Features

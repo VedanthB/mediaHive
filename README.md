@@ -1,7 +1,7 @@
 
 ## mediaHIve
 
-A video management application built with React/Babel (Client), React Context API for state management, Argon CSS (my own css framework lib) . Auto formatted with Prettier, linted with ESLint. MockBee for mock backend.
+A video management application built with React/Babel (Client), React Context API for state management, Argon CSS (my own css framework lib) . Auto formatted with Prettier, linted with ESLint. MockBee for mock backend. React Testing Library and jest to unit test core features.
 
 
 ## Features
@@ -14,11 +14,12 @@ A video management application built with React/Babel (Client), React Context AP
 - Watch later 
 - Sort and filter videos by categories
 - Authentication
+- React Testing Library and jest to unit test core features.
 
 
 ## Tech Stack
 
-**Client:** React, Argon CSS (my own CSS framework), React Router V6
+**Client:** React, Argon CSS (my own CSS framework), React Router V6, React Testing Library and jest to unit test core features.
 
 **Backend:** mockBee (mock-backend) 
 

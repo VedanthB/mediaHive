@@ -16,6 +16,8 @@ const History = () => {
 
   const { showToast } = useToast();
 
+  console.log(history);
+
   return (
     <div className="historyPage_container">
       <div className="flex justify-end">

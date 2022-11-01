@@ -3,7 +3,7 @@ import { filterActions } from "../constants";
 import { filterReducer } from "./filterReducer";
 
 describe("testing filter reducer", () => {
-  test("if loading action is dispatched", () => {
+  test("if filter by is dispatched", () => {
     let action = {
       type: filterActions.FILTER_BY,
       payload: "Disney",

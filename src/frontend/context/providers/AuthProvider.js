@@ -4,7 +4,7 @@ import { authReducer } from "../reducer";
 
 const AuthContext = createContext();
 
-const authInitState = {
+export const authInitState = {
   loading: false,
   error: null,
   user: {},

@@ -52,6 +52,7 @@ export const loginUser = async (
     } = await loginService(userData);
 
     if (status >= 200 && status < 300) {
+      console.log(foundUser, encodedToken);
       authDispatch({
         type: authActions.LOGIN_SUCCESS,
         payload: { foundUser, encodedToken },

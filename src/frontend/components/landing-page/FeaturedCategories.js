@@ -7,6 +7,8 @@ const FeaturedCategories = () => {
     categoryState: { categories },
   } = useCategory();
 
+  console.log(categories);
+
   return (
     <div className="featuredCategories__container">
       {/* cards */}
